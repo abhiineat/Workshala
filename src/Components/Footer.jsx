@@ -48,7 +48,7 @@ import appstore from '../assets/AppStore.png'
             </div>
           </div>
         </div>
-        <div className="bg-regular-bg h-20 flex flex-wrap justify-evenly overflow-hidden">
+        <div className="bg-footer2-bg h-20 flex flex-wrap justify-evenly overflow-hidden">
             <div className="flex flex-wrap  gap-20 w-1/2 justify-center items-center">
             <div className="">
           <div>

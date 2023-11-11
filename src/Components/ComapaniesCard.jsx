@@ -1,51 +1,95 @@
 import React from "react";
 import Slider from "react-slick";
+import Logo from "../assets/companyLogo.png";
+import Star from "../assets/Star.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-    const Card = ({ title, content }) => (
-        <div className="text-black border-2 bg-white p-4">
-          <h2 className="text-2xl">Sample CAr</h2>
-          <p>{content}</p>
+const Card = () => (
+  <div className="text-black border-2 bg-white rounded-2xl">
+    <div className="flex justify-evenly items-center">
+      <img src={Logo} alt="Company Logo" />
+    </div>
+    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden">
+      <div className="font-semibold flex justify-center items-center">Cognizant</div>
+      <div className="flex justify-evenly items-center">
+        <div>
+          <img src={Star} alt="Star" style={{ height: 20 }} />
         </div>
-      );
-      
-      const CompaniesCard = () => {
-        const numberOfCards = 8; // Specify the number of times you want to repeat the card.
-      
-        const cardData = {
-          
-          title: "e Card",
-          content: "This is the content of the sample card.",
-        };
-      
-        const cards = Array(numberOfCards).fill(cardData);
+        <div>3.3</div> 
+        <div>1k Reviews </div>
+      </div>
+    </div>
+    <div className="flex justify-center items-center text-2xl font-bold">Cognizant</div>
+    <div className="flex justify-center items-center m-5">
+      Lorem Ipsum is simply dummy text of the printing.
+    </div>
+    <div className="flex justify-center my-5">
+      <button className="bg-custom-bg rounded text-white py-2 px-4   ">
+        View Jobs
+      </button>
+    </div>
+  </div>
+);
 
-        const sliderSettings = {
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-          };
-    return(
-     <div>
-    <div>Companies</div>
-    <div>Featured Companies actively hiring</div>
-    {/* now card starts here*/}
-    <div>
-    <h1>Card Repeater</h1>
-      <div className="grid grid-cols-3 gap-4">
+const CompaniesCard = () => {
+  const numberOfCards = 8;
+  
+  const sliderSettings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    arrows: true,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+
+    responsive: [{
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // centerMode: true,
+
+      }
+
+    }, {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+
+      }
+    },  {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      }
+    }]
+  };
+
+  return (
+    <div className="flex-col justify-evenly items-center">
+      <div className="flex justify-center items-center m-4">Companies</div>
+      <div className="flex justify-center items-center m-4 text-3xl font-bold">
+        Featured Companies actively hiring
+      </div>
+      <div className="m-8 block">
         <Slider {...sliderSettings}>
-        {cards.map((card, index) => (
-          <Card key={index}/>
-        ))}
+          {[...Array(numberOfCards)].map((_, index) => (
+            <Card key={index} />
+          ))}
         </Slider>
       </div>
     </div>
-    {/* now card ends here */}
+  );
+};
 
-     </div>
-    )
-}
-export default CompaniesCard
+export default CompaniesCard;
