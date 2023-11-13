@@ -76,6 +76,7 @@ const CompaniesCard = () => {
   };
 
   return (
+    <div>
     <div className="flex-col justify-evenly items-center">
       <div className="flex justify-center items-center m-4">Companies</div>
       <div className="flex justify-center items-center m-4 text-3xl font-bold">
@@ -89,6 +90,14 @@ const CompaniesCard = () => {
         </Slider>
       </div>
     </div>
+    <div className="flex justify-center items-center">
+    <div>
+       <button className="bg-custom-bg rounded text-white px-4 py-3">View All Companies</button>
+    </div>
+    </div>
+    </div>
+
+    
   );
 };
 
