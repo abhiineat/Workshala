@@ -1,6 +1,11 @@
 import React from "react";
 import playstore from '../assets/Playstore.png'
 import appstore from '../assets/AppStore.png'
+import facebook from '../assets/facebook logo.png'
+import twitter from '../assets/twitter logo.png'
+import instagram from '../assets/instagram logo.png'
+import linkedin from '../assets/Linkedin.png'
+
 
  function Footer() {
     return(
@@ -8,7 +13,7 @@ import appstore from '../assets/AppStore.png'
         <div className="bg-custom-bg w-full h-80 flex flex-wrap md:justify-between justify-center overflow-hidden">
           <div className="flex-col flex-wrap md:justify-evenly justify-center"> 
             <div className="text-2xl font-semibold md:m-10 md:mx-20 m-5 ml-12" >Important Links</div> 
-            <div className="flex flex-wrap  text-xl m-20 my-10 gap-8 font-semibold"> 
+            <div className="flex flex-wrap  text-xl m-20 my-10 gap-8 font-semibold "> 
                 <div>
                     <ul >
                         <li className="mb-3">About us</li>
@@ -53,13 +58,13 @@ import appstore from '../assets/AppStore.png'
             <div className="">
           <div>
             <div className="flex text-2xl" >
-           <div className="text-custom-text">WORK</div><div>SHALA</div></div>
+           <div className="text-custom-text">WORK</div><div className="text-footer-text2">SHALA</div></div>
           </div>
           <div className="text-white">Connect with us</div>
         </div>
         <div>
-            <div className="text-white text-2xl">Join with us</div>
-            <div><img/></div>
+            <div className="text-white text-2xl mb-3">Join with us</div>
+            <div className="flex gap-8"><img src={instagram}/><img src={twitter}/><img src={facebook}/><img src={linkedin}/></div>
         </div>
         </div>
         <div className="text-white text-xl mt-2 w-1/2 text-center hidden md:block">
@@ -67,7 +72,7 @@ import appstore from '../assets/AppStore.png'
             <div className="flex gap-3 justify-center">
                 <li>1900-2000-4992</li>
                 <li>1900-2000-4992</li>
-            </div>
+            </div> 
         </div>
         </div>
      </div>

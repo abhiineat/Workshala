@@ -4,13 +4,15 @@ import Logo from "../assets/companyLogo.png";
 import Star from "../assets/Star.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
-const Card = () => (
-  <div className="text-black border-2 bg-white rounded-2xl">
+
+export const Card = () => (
+  <div className="text-black border-2 border-customColor bg-white rounded-3xl flex-col flex-wrap m-5">
     <div className="flex justify-evenly items-center">
       <img src={Logo} alt="Company Logo" />
     </div>
-    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden">
+    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden md:block">
       <div className="font-semibold flex justify-center items-center">Cognizant</div>
       <div className="flex justify-evenly items-center">
         <div>
@@ -33,7 +35,7 @@ const Card = () => (
 );
 
 const CompaniesCard = () => {
-  const numberOfCards = 8;
+  const numberOfCards = 15;
   
   const sliderSettings = {
     infinite: true,
@@ -92,7 +94,7 @@ const CompaniesCard = () => {
     </div>
     <div className="flex justify-center items-center">
     <div>
-       <button className="bg-custom-bg rounded text-white px-4 py-3">View All Companies</button>
+       <Link to='/companies'><button className="bg-custom-bg rounded text-white px-4 py-3">View All Companies</button></Link>
     </div>
     </div>
     </div>

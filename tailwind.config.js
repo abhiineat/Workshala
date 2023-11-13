@@ -18,6 +18,18 @@ export default {
         textColor: {
           'custom-text': '#946CC3', 
           'footer-text': '#000000',
+          'footer-text2': '#666666',
+          'card-text': '#0083E1',
+          
+        },
+        boxShadow: {
+          'custom': '2px 2px 4px 2px rgba(0, 0, 0, 0.2)',
+        },
+        fontFamily: {
+          'worksans': ['Work Sans', 'sans-serif'],
+        },
+        colors: {
+          customColor: '#946CC3', 
         },
     },
   },
