@@ -5,14 +5,23 @@ import Salary from '../assets/Salary.png'
 import Shuttle from '../assets/Shuttle.png'
 import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
+import Tata from '../assets/tata logo.png'
+import Name from '../assets/tataname.png'
 
 const Companycard = () => (
   <div className="text-worksans shadow-custom p-8">
-    
+    <div className="flex">
+      <div>
    <div className="flex items-center"><div className="px-2 border-2 border-black rounded flex items-center gap-2"><div class="w-4 h-4 bg-custom2-bg rounded-full"></div>Actively hiring</div></div>
 
    <div className="font-semibold text-3xl">Fundraising <br></br> Volunteering</div>
    <div>Odisha Development <br></br>Management programme<br></br>(ODMP)</div>
+   </div>
+   <div className="flex-col ml-24 mt-5">
+   <div className="flex justify-center items-center"><img src={Name}/></div>
+   <div  className="flex justify-center items-center"><img src={Tata}/></div>
+   </div>
+   </div>
    <div>
     <div className="flex justify-between md:gap-10 gap-2 my-2 flex-wrap">
         <div className="flex justify-center items-center gap-2 flex-wrap">
