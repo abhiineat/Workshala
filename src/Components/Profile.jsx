@@ -17,7 +17,7 @@ function Profile() {
                 <div className="hidden md:block">Ajay Kumar Garg Engineering College</div>
             </div>
             </div>
-            <div className="flex flex-wrap gap-6 items-center justify-center hidden md:block">
+            <div className=" flex-wrap gap-6 items-center justify-center hidden md:flex">
                 <div><button className="bg-custom-bg rounded text-white py-2 px-8 hover:bg-white hover:text-custom-text hover:border-2">Edit </button></div>
                 <div><button className="bg-custom-bg rounded text-white p-2 hover:bg-white hover:text-custom-text hover:border-2">Your Resume</button></div>
             </div>

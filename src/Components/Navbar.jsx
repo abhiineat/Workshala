@@ -11,7 +11,7 @@ function Navbar () {
   };
 
   return (
-   <div className="w-full  flex justify-between px-4 md:px-8 items-center  h-20 ">
+   <div className="w-full  flex justify-between px-4 md:px-8 items-center  md:h-20 h-max">
     <div className="flex justify-between w-1/3 gap-20">
       <Link to= '/'>
     <div className="flex text-3xl font-semibold font-inter">
@@ -19,9 +19,9 @@ function Navbar () {
     <div>SHALA</div>
     </div>
     </Link>
-    <ul className='md:flex hidden gap-6 text-xl m-2 '>
+    <ul className='lg:flex hidden gap-6 text-xl m-2 '>
        <Link to='/'> <li className="text-custom-text">Home</li></Link>
-       <li>Services</li>
+        <li>Services</li>
          <Link to='/companies'><li>Companies</li></Link>
          <Link to='/jobs'><li>Jobs</li></Link>
     </ul>
@@ -32,23 +32,29 @@ function Navbar () {
         <div>
         <button className="bg-custom-bg rounded text-white py-2 px-4">Register</button></div>
     </div>
-    {/* <div className="bg-blue">
-    <div className={`md:hidden ${showMenu ? "flex-col" : "hidden"} gap-6 text-xl   bg-blue mt-18 ml-24`}>
+    <div className='mt-20 lg:hidden'>
+    <ul className={` lg:hidden ${showMenu ? "flex-col" : "hidden" } flex-col justify-center items-center absolute w-full top-20 right-0 bg-white border-2 border-customColor`}>
           <Link to="/">
             {" "}
-            <div className="text-custom-text text-sm">Home</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Home</div>
           </Link>
-            <div className='text-sm'>Services</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Services</div>
           <Link to="/companies">
-            <div className='text-sm'>Companies</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Companies</div>
           </Link>
           <Link to="/jobs">
-            <div className='text-sm'>Jobs</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Jobs</div>
           </Link>
+  
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Register</div>
+      
+  
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Login</div>
+        
+        </ul>
         </div>
-        </div> */}
 
-    <div className="md:hidden" onClick={hamburger}>
+    <div className="lg:hidden" onClick={hamburger}>
       <FaBars/>
     </div>
    </div>
