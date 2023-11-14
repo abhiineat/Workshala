@@ -10,7 +10,7 @@ export default function LoginPage() {
         <div className="mt-[9vh] flex flex-wrap flex-col ">
           <div className=" font-WorkSans font-medium text-base flex">Email</div>
           <form>
-          <div className=" flex">
+          <div className="flex">
             
             <input type="email" required name="email" className="border border-black rounded-md font-WorkSans text-base w-[20rem] h-[3rem] pl-4 max-[640px]:w-[50vw]  max-[420px]:w-[70vw] " placeholder='Enter your email' />
           </div>
@@ -18,7 +18,7 @@ export default function LoginPage() {
           <div className="flex">
             <input type="password" required name="password" className="border border-black rounded-md font-WorkSans text-base w-[20rem] h-[3rem] pl-4 max-[640px]:w-[50vw]  max-[420px]:w-[70vw] " placeholder='Enter your Password' />
           </div>
-          <div className="flex flex-row mt-[1vh] max-[640px]:w-[50vw] ">
+          <div className="flex  flex-row mt-[1vh] max-[640px]:w-[50vw] ">
             <div className="">
               <input type="checkbox" className='' name='rememberMe' />
               
