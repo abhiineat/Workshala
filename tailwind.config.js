@@ -13,14 +13,14 @@ export default {
           'footer-bg' : '#B5B5B5',
           'service-bg' : '#FFB2CA',
           'custom1-bg' : '#FFE5ED',
-          'footer2-bg' : '#251636'
+          'footer2-bg' : '#251636',
+          'custom2-bg' : '#A2E5E3'
         },
         textColor: {
           'custom-text': '#946CC3', 
           'footer-text': '#000000',
           'footer-text2': '#666666',
           'card-text': '#0083E1',
-          
         },
         boxShadow: {
           'custom': '2px 2px 4px 2px rgba(0, 0, 0, 0.2)',
