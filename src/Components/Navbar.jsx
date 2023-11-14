@@ -21,7 +21,7 @@ function Navbar () {
     </Link>
     <ul className='md:flex hidden gap-6 text-xl m-2 '>
        <Link to='/'> <li className="text-custom-text">Home</li></Link>
-        <li>Services</li>
+       <li>Services</li>
          <Link to='/companies'><li>Companies</li></Link>
          <Link to='/jobs'><li>Jobs</li></Link>
     </ul>
