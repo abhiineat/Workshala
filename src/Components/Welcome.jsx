@@ -24,7 +24,7 @@ function Welcome() {
             <div className="border-2 border-black rounded-xl mt-5 md:m-0">
                 <div className="md:py-2 md:px-8 p-1 ">
              <div className="text-2xl ">I'm Fresher</div>
-             <div className="text-sm mt-3">I am a Student <br></br>Haven't Worked after Graduation</div>
+             <div className="text-sm mt-3">I am a Student <br></br>Haven't Worked after College</div>
              </div>
             </div>
            </div>

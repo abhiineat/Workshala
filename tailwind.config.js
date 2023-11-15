@@ -27,6 +27,7 @@ export default {
         },
         fontFamily: {
           'worksans': ['Work Sans', 'sans-serif'],
+          'WorkSans': ["Work Sans", 'sans-serif'],
         },
         colors: {
           customColor: '#946CC3', 

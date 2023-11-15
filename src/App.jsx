@@ -1,21 +1,10 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './Components/Navbar'
-import Homeframe from './Components/Homeframe'
-import Footer from './Components/Footer'
-import Services from './Components/Services'
-import CompaniesCard from './Components/ComapaniesCard'
-import Events from './Components/Events'
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
-   <Navbar/>
-   <Homeframe/>
-   <Services/>
-   <CompaniesCard/>
-   <Events/>
-   <Footer/>
+    <Outlet/>
     </>
   )
 }
