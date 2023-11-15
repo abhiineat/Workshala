@@ -50,7 +50,7 @@ const Companycard = () => (
    </div>
    <div className="text-card-text">5 Days ago</div>
    <hr class="border-2 border-gray-200 my-4 w-full"/>
-   <div className="text-card-text">View Details</div>
+   <div className="text-card-text cursor-pointer">View Details</div>
   </div>
 )
 const numberOfCards = 15;

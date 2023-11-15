@@ -15,8 +15,8 @@ import contest from  '../assets/contest.png'
                 <div className="m-1 ">Coding Ninjas</div>
             </div>
         </div>
-        <div className="p-2 border-2 mr-40 rounded-2xl my-5">Data Structures and Algorithm</div>
-        <div className="flex gap-6">
+        <div className="p-2 sm:border-2 mr-40 rounded-2xl my-5">Data Structures and Algorithm</div>
+        <div className="flex  flex-wrap gap-6">
             <div className="m-1">
                 <div></div>
                 <div>1 Nov,9:00 PM</div>

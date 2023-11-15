@@ -21,35 +21,35 @@ function Navbar () {
     </Link>
     <ul className='lg:flex hidden gap-6 text-xl m-2 '>
        <Link to='/'> <li className="text-custom-text">Home</li></Link>
-        <li>Services</li>
+        <li className='cursor-pointer'>Services</li>
          <Link to='/companies'><li>Companies</li></Link>
          <Link to='/jobs'><li>Jobs</li></Link>
     </ul>
     
     </div>
     <div className="lg:flex hidden gap-5 text-xl justify-center items-center">
-        <div>SignIn</div>
+        <div className='cursor-pointer'>SignIn</div>
         <div>
-        <button className="bg-custom-bg rounded text-white py-2 px-4">Register</button></div>
+        <button className="bg-custom-bg rounded text-white py-2 px-4 hover:bg-white hover:text-custom-text hover:border-2 border-2">Register</button></div>
     </div>
     <div className='mt-20 lg:hidden'>
     <ul className={` lg:hidden ${showMenu ? "flex-col" : "hidden" } flex-col justify-center items-center absolute w-full top-20 right-0 bg-white border-2 border-customColor`}>
           <Link to="/">
             {" "}
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Home</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Home</div>
           </Link>
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Services</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Services</div>
           <Link to="/companies">
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Companies</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Companies</div>
           </Link>
           <Link to="/jobs">
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Jobs</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Jobs</div>
           </Link>
   
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Register</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Register</div>
       
   
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center'>Login</div>
+            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Login</div>
         
         </ul>
         </div>
