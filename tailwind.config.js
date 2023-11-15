@@ -5,7 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
+    extend:
+     {
       backgroundColor: {
         'custom-bg': '#946CC3', 
         'regular-bg': '#946CC3',
@@ -26,13 +27,12 @@ export default {
       },
       fontFamily: {
         'worksans': ['Work Sans', 'sans-serif'],
+        'WorkSans': ["Work Sans", 'sans-serif'],
       },
       colors: {
         customColor: '#946CC3', 
       },
-      fontFamily: {
-        WorkSans: ["Work Sans", 'sans-serif'],
-       },
+      
     },
   },
   plugins: [],
