@@ -20,10 +20,10 @@ function Navbar () {
     </div>
     </Link>
     <ul className='lg:flex hidden gap-6 text-xl m-2 '>
-       <Link to='/'> <li className="text-custom-text">Home</li></Link>
-        <li className='cursor-pointer'>Services</li>
-         <Link to='/companies'><li>Companies</li></Link>
-         <Link to='/jobs'><li>Jobs</li></Link>
+       <Link to='/'> <li className="hover:text-custom-text">Home</li></Link>
+        <li className='cursor-pointer hover:text-customColor'>Services</li>
+         <Link to='/companies'><li className='hover:text-customColor'>Companies</li></Link>
+         <Link to='/jobs'><li className='hover:text-customColor'>Jobs</li></Link>
     </ul>
     
     </div>

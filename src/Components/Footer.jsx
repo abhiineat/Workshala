@@ -38,7 +38,7 @@ import linkedin from '../assets/Linkedin.png'
                 </div>
             </div>
           </div>
-          <div className="flex-col flex-wrap m-10 hidden md:block">
+          <div className="flex-col flex-wrap m-10 hidden md:block rounded-2xl">
             <div className="text-xl font-semibold m-2">Email Your Query</div>
             <div className="bg-custom-bg m-2 rounded-xl"><input class="border-2  p-2 text-black   w-3/4" type="text" placeholder="Enter your email-here"/>
             <button className="rounded px-8 py-[0.5rem]  border-2 ">Sign Up</button>
