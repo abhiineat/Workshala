@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import login from '../assets/login.svg'
+import Eye from '../assets/eye.svg'
 export default function LoginPage() {
+  const[password,setPassword]= useState(true);
+  const eyeClick=()=>{
+    setPassword(!password)
+  }
   return (
     <>
     <div className='flex flex-wrap flex-row max-[1024px]:justify-center' >
@@ -15,8 +20,9 @@ export default function LoginPage() {
             <input type="email" required name="email" className="border border-black rounded-md font-WorkSans text-base w-[20rem] h-[3rem] pl-4 max-[640px]:w-[50vw]  max-[420px]:w-[70vw] " placeholder='Enter your email' />
           </div>
           <div className="mt-2 font-WorkSans font-medium flex text-base">Password</div>
-          <div className="flex">
-            <input type="password" required name="password" className="border border-black rounded-md font-WorkSans text-base w-[20rem] h-[3rem] pl-4 max-[640px]:w-[50vw]  max-[420px]:w-[70vw] " placeholder='Enter your Password' />
+          <div className="flex border border-black rounded-md">
+            <input type={password? "password" : "text"} required name="password" className="focus:border-none focus:outline-none font-WorkSans text-base w-[18rem] h-[3rem] pl-4 max-[640px]:w-[50vw]  max-[420px]:w-[70vw] " placeholder='Enter your Password' />
+            <img className='cursor-pointer ' onClick={eyeClick} src={Eye} />
           </div>
           <div className="flex  flex-row mt-[1vh] max-[640px]:w-[50vw] ">
             <div className="">
