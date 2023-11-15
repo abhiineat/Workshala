@@ -6,13 +6,15 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements} f
 import Companies from './Components/Companies.jsx'
 import Jobs from './Components/Jobs.jsx'
 import Profile from './Components/Profile.jsx'
+import Welcome from './Components/Welcome.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
    <>
    <Route path='/' element={<App />} />
    <Route path='/companies' element={<Companies/>}/>
    <Route path='/jobs' element={<Jobs/>}/>
-   
+   <Route path='/profile' element={<Profile/>}/>
+   <Route path='/welcome' element={<Welcome/>}/>
    </>
   )
 )

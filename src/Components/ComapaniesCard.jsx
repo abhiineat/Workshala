@@ -12,7 +12,7 @@ export const Card = () => (
     <div className="flex justify-evenly items-center">
       <img src={Logo} alt="Company Logo" />
     </div>
-    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden md:block">
+    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden lg:block">
       <div className="font-semibold flex justify-center items-center">Cognizant</div>
       <div className="flex justify-evenly items-center">
         <div>

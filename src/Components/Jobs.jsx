@@ -9,7 +9,7 @@ import Tata from '../assets/tata logo.png'
 import Name from '../assets/tataname.png'
 
 const Companycard = () => (
-  <div className="text-worksans shadow-custom p-8">
+  <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col">
     <div className="flex">
       <div>
    <div className="flex items-center"><div className="px-2 border-2 border-black rounded flex items-center gap-2"><div class="w-4 h-4 bg-custom2-bg rounded-full"></div>Actively hiring</div></div>
@@ -50,7 +50,7 @@ const Companycard = () => (
    </div>
    <div className="text-card-text">5 Days ago</div>
    <hr class="border-2 border-gray-200 my-4 w-full"/>
-   <div className="text-card-text">View Details</div>
+   <div className="text-card-text cursor-pointer">View Details</div>
   </div>
 )
 const numberOfCards = 15;
