@@ -5,6 +5,6 @@
 @tailwind components;
 @tailwind utilities;    
 
-.body{
-    overflow: hidden;
+.slick-slide > div {
+    margin: 0 15px;
 }
