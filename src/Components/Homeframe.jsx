@@ -5,8 +5,8 @@ function Homeframe () {
     return(
        <div className="flex justify-center lg:justify-between">
         <div  className="flex-col lg:w-2/5 lg:justify-evenly lg:my-40 lg:ml-40 justify-center item-center">
-        <div className="lg:hidden justify-center items-center flex"><img src={Homeicon} style={{height:'15rem' , width:'20rem'}}/></div>
-        <div className="m-5 md:m-0">
+        <div className="lg:hidden justify-center items-center flex m-5 md:m-0"><img src={Homeicon} style={{height:'15rem' , width:'20rem'}}/></div>
+        <div className="m-8 md:m-0"> 
           <div className="flex ">
             <div><img src={Hand}/></div>
             <div className="text-custom-text">WELCOME TO WORKSHALA</div>
