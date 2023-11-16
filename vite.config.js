@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
 })
 export default {
-  base: 'https://workshala-eight.vercel.app/'
+  base: 'https://workshala-eight.vercel.app'
 };
