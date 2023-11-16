@@ -42,7 +42,7 @@ function Register() {
             <input type="text" onChange={handleChange} required name="name" value={inputData.name} className="flex flex-wrap border border-black rounded-md font-WorkSans text-base w-[26rem] ml-[3.5rem] h-[2.5rem] pl-3 max-[640px]:w-[65vw] max-[500px]:ml-8  " placeholder='Enter Your Name' />
             
             <div className="flex flex-wrap font-WorkSans font-medium text-base ml-[3.5rem] mt-4 p-0 max-[500px]:ml-8">Phone Number</div>
-            <input type="number"  onChange={handleChange}  required name="number" value={inputData.number} className="flex flex-wrap border border-black rounded-md font-WorkSans text-base w-[26rem] ml-[3.5rem] h-[2.5rem] pl-3 max-[640px]:w-[65vw] max-[500px]:ml-8" placeholder='Enter Your Phone Number' />
+            <input type="text"  onChange={handleChange} required name="number" value={inputData.number} className="flex flex-wrap border border-black appearance-none rounded-md font-WorkSans text-base w-[26rem] ml-[3.5rem] h-[2.5rem] pl-3 max-[640px]:w-[65vw] max-[500px]:ml-8" placeholder='Enter Your Phone Number' />
            
             <div className="flex flex-wrap font-WorkSans font-medium text-base ml-[3.5rem] mt-4 p-0 max-[500px]:ml-8">Email</div>
             <input type="email"  onChange={handleChange}  required name="email" value={inputData.email} className="flex flex-wrap border border-black rounded-md font-WorkSans text-base w-[26rem] ml-[3.5rem] h-[2.5rem] pl-3 max-[640px]:w-[65vw] max-[500px]:ml-8" placeholder='Enter Your Email' />
