@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import Logo from "../assets/companyLogo.png";
 import Star from "../assets/Star.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
-export const Card = () => (
+export const Card = ({company}) => (
   <div className="text-black border-2 border-customColor bg-white rounded-3xl flex-col flex-wrap m-5">
     <div className="flex justify-evenly items-center">
-      <img src={Logo} alt="Company Logo" />
+      <img src={company.imageUrl} alt="Company Logo" style={{width:100 , height:100}} />
     </div>
     <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden lg:block">
-      <div className="font-semibold flex justify-center items-center">Cognizant</div>
+      <div className="font-semibold flex justify-center items-center">{company.companyName}</div>
       <div className="flex justify-evenly items-center">
         <div>
           <img src={Star} alt="Star" style={{ height: 20 }} />
@@ -22,12 +23,12 @@ export const Card = () => (
         <div>1k Reviews </div>
       </div>
     </div>
-    <div className="flex justify-center items-center text-2xl font-bold">Cognizant</div>
+    <div className="flex justify-center items-center text-2xl font-bold">{company.companyName}</div>
     <div className="flex justify-center items-center m-5">
-      Lorem Ipsum is simply dummy text of the printing.
+      {company.description}
     </div>
     <div className="flex justify-center my-5">
-      <button className="bg-custom-bg rounded text-white py-2 px-4   ">
+      <button className="bg-custom-bg rounded text-white py-2 px-4  ">
         View Jobs
       </button>
     </div>
@@ -35,8 +36,16 @@ export const Card = () => (
 );
 
 const CompaniesCard = () => {
-  const numberOfCards = 15;
-  
+
+  const [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://workshala.onrender.com/jobs")
+      .then((response) => setApiData(response.data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
   const sliderSettings = {
     infinite: true,
     speed: 500,
@@ -86,9 +95,9 @@ const CompaniesCard = () => {
       </div>
       <div className="m-8 block">
         <Slider {...sliderSettings}>
-          {[...Array(numberOfCards)].map((_, index) => (
-            <Card key={index} />
-          ))}
+          {apiData.map((company, index) => (
+              <Card key={index} company={company} />
+            ))}
         </Slider>
       </div>
     </div>

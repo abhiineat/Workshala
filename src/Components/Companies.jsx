@@ -1,22 +1,32 @@
 import React from "react";
+import { useEffect,useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Slider from "react-slick";
 import { Card } from "./ComapaniesCard";
+import axios from "axios";
 
 function Companies () {
+    const [apiData, setApiData] = useState([]);
     const numberOfCards = 15;
     const cards = [];
 
-  for (let i = 0; i < numberOfCards; i += 3) {
-    cards.push(
-      <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap">
-        <Card />
-        <Card />
-        <Card />
-      </div>
-    );
-  }
+    useEffect(() => {
+      axios
+        .get("https://workshala.onrender.com/jobs")
+        .then((response) => setApiData(response.data))
+        .catch((error) => console.error("Error fetching data:", error));
+    }, []);
+  
+    for (let i = 0; i < numberOfCards; i += 3) {
+      cards.push(
+        <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap">
+          {/* Render cards based on the fetched jobs */}
+          {apiData.slice(i, i + 3).map((company, index) => (
+            <Card key={index} company={company} />
+          ))}
+        </div>
+      );
+    }
     return(
         <>
         <Navbar/>

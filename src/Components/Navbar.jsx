@@ -16,7 +16,7 @@ function Navbar () {
       <Link to= '/'>
     <div className="flex text-3xl font-semibold font-inter">
     <div className="text-custom-text">WORK</div>
-    <div>SHALA</div>
+    <div className='text-footer-text2'>SHALA</div>
     </div>
     </Link>
     <ul className='lg:flex hidden gap-6 text-xl m-2 '>
@@ -28,9 +28,9 @@ function Navbar () {
     
     </div>
     <div className="lg:flex hidden gap-5 text-xl justify-center items-center">
-        <div className='cursor-pointer'>SignIn</div>
+        <Link to='/login'><div className='cursor-pointer'>SignIn</div></Link>
         <div>
-        <button className="bg-custom-bg rounded text-white py-2 px-4 hover:bg-white hover:text-custom-text hover:border-2 border-2">Register</button></div>
+        <Link to='/register'><button className="bg-custom-bg rounded text-white py-2 px-4 hover:bg-white hover:text-custom-text hover:border-2 border-2">Register</button> </Link></div>
     </div>
     <div className='mt-20 lg:hidden'>
     <ul className={` lg:hidden ${showMenu ? "flex-col" : "hidden" } flex-col justify-center items-center absolute w-full top-20 right-0 bg-white border-2 border-customColor`}>
@@ -46,10 +46,10 @@ function Navbar () {
             <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Jobs</div>
           </Link>
   
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Register</div>
+          <Link to='/register'><div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Register</div></Link>
       
   
-            <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Login</div>
+            <Link to='/login'> <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Login</div></Link>
         
         </ul>
         </div>

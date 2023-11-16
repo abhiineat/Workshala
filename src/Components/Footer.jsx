@@ -9,7 +9,7 @@ import linkedin from '../assets/Linkedin.png'
 
  function Footer() {
     return(
-     <div className="flex-col flex-wrap">
+     <div className="flex-col flex-wrap mt-20">
         <div className="bg-custom-bg w-full h-80 flex flex-wrap md:justify-between justify-center overflow-hidden">
           <div className="flex-col flex-wrap md:justify-evenly justify-center"> 
             <div className="text-2xl font-semibold md:m-10 md:mx-20 m-5 ml-12" >Important Links</div> 

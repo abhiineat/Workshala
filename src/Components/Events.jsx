@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import contest from  '../assets/contest.png'
 
     const Contest = () => (
-    <div className="h-22.5rem w-28.125rem justify-center">
+    <div className="h-22.5rem w-28.125rem justify-center border-1 border-black">
     <div><img src={contest} className="rounded-t-3xl"/></div>
     <div>
         <div>
@@ -77,12 +77,12 @@ const Events = () => {
 
 
       return (
-        <div className="flex-col justify-evenly items-center ">
+        <div className="flex-col justify-evenly items-center mt-20 ">
           <div className="flex justify-center items-center m-4">Events</div>
           <div className="flex justify-center items-center m-4 text-3xl font-bold">
             Upcoming Events and Challenges 
           </div>
-          <div className="m-8 block">
+          <div className="m-8 block bg-white">
             <Slider {...sliderSettings}>
               {[...Array(Totalcontests)].map((_, index) => (
                 <Contest key={index} />

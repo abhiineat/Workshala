@@ -3,9 +3,11 @@ import tutorial from '../assets/Tutorials.png'
 
 function Services () {
     return (
-     <div className="bg-service-bg h- bg-opacity-20 flex-col flex-wrap">
+     <div className="bg-service-bg h- bg-opacity-20 flex-col flex-wrap ">
+      <div className="">
        <div  className="justify-center items-center flex flex-wrap">Services</div>
        <div className="justify-center items-center flex text-3xl font-bold">Our Services</div>
+       </div>
        <div className="flex justify-center flex-wrap">
        <div className="flex justify-evenly flex-wrap gap-8 m-8">
         <div className="flex flex-wrap gap-8 justify-evenly">
