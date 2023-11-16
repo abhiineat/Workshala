@@ -13,8 +13,8 @@ import Reset from './Components/Reset password/Reset.jsx'
 import Register from './Components/Register/Register.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
-   <>
-   <Route path='/' element={<Home />} />
+   <Route path='/' element={
+   <Route path='' element={<Home />} />
    <Route path='/companies' element={<Companies/>}/>
    <Route path='/jobs' element={<Jobs/>}/>
    <Route path='/profile' element={<Profile/>}/>
@@ -22,7 +22,7 @@ const router = createBrowserRouter(
        <Route path='/login' element={<LoginPage/>}/>
         <Route path='/reset' element={<Reset/>}/>
         <Route path='/register' element={<Register/>}/>
-   </>
+    }/>
   )
 )
 ReactDOM.createRoot(document.getElementById('root')).render(
