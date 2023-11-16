@@ -9,9 +9,9 @@ import Register from './components/Register/Register.jsx'
 const router=createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
-        <Route path='login' element={<LoginPage/>}/>
-        <Route path='reset' element={<Reset/>}/>
-        <Route path='register' element={<Register/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/reset' element={<Reset/>}/>
+        <Route path='/register' element={<Register/>}/>
     </Route>
 
   )
