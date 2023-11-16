@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@babel/compat-data": "^7.23.3",
+    "@babel/helper-module-transforms": "^7.23.3",
     "axios": "^1.6.2",
     "nanoid": "^5.0.3",
     "react": "^18.2.0",
