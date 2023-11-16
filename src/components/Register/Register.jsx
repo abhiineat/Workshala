@@ -25,7 +25,7 @@ function Register() {
      event.preventDefault();
      axios.post("https://workshala.onrender.com/signUp",inputData)
      .then((response)=>{
-      alert(response.data.message)
+      console.log(response)
      })
 
     };
