@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements} from 'react-router-dom'
 import Companies from './Components/Companies.jsx'
@@ -7,6 +8,9 @@ import Jobs from './Components/Jobs.jsx'
 import Profile from './Components/Profile.jsx'
 import Welcome from './Components/Welcome.jsx'
 import Home from './Home.jsx'
+import LoginPage from './components/LoginPage.jsx'
+import Reset from './components/Reset password/Reset.jsx'
+import Register from './components/Register/Register.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
    <>
@@ -15,6 +19,9 @@ const router = createBrowserRouter(
    <Route path='/jobs' element={<Jobs/>}/>
    <Route path='/profile' element={<Profile/>}/>
    <Route path='/welcome' element={<Welcome/>}/>
+       <Route path='login' element={<LoginPage/>}/>
+        <Route path='reset' element={<Reset/>}/>
+        <Route path='register' element={<Register/>}/>
    </>
   )
 )
