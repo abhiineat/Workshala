@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import registerImg from '../../assets/register.svg'
 import Eye from '../../assets/eye.svg'
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-// import { toast,ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function Register() {
@@ -12,6 +12,7 @@ function Register() {
   const eyeClick=()=>{
     setPassword(!password)
   }
+  const navigate= useNavigate();
   let [er,setEr]=useState(''); 
    const data={
     name: "",
@@ -31,7 +32,8 @@ function Register() {
       // setLoading(true)
       const response = await axios.post("https://workshala.onrender.com/signUp",inputData);
           console.log(response)
-          // toast.success("Login Successful")
+          toast.success(" ")
+          navigate('/login');
           // login(response.data.data.token);
           // navigate('/home');
           // setLoading(false);
@@ -41,7 +43,7 @@ function Register() {
   if(err.response.status===409)
   {
     
-    // toast.error("user already exists");
+    toast.error("user already exists");
   }
   // else{
   // setErrorPassword(err.response.data.message);
@@ -86,7 +88,7 @@ function Register() {
 
       </div>
       </div>
-      {/* <ToastContainer/> */}
+      <ToastContainer/>
     </>
   )
 }
