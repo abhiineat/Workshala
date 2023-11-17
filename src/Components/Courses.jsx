@@ -6,6 +6,7 @@ import arrow from "../assets/arrow.svg";
 import CategoriesCard from './CategoriesCard';
 import CoursesCard from './CoursesCard';
 import arrowMore from "../assets/arrowMore.svg";
+import { Link } from 'react-router-dom';
 function Courses() {
   const titleArray = ["UI/UX Designing","UI/UX Designing", "Web Development" ,"Robotics", "Robotics"];
   const iterations = Array.from({ length: 6 }, (_, index) => index);
@@ -34,7 +35,7 @@ function Courses() {
       <img src={arrow} className='ml-2 mt-8' style={{height:"2" }}/>
       </div>
     </div>
-    <img src={coursesLady} alt="Star" style={{ width: "55%"}} />
+    <img src={coursesLady} alt="Star" style={{ width: "55%" }} />
     </div>
     <div className='font-WorkSans flex font-semibold text-[1.4rem] mt-[3rem] ml-[3.2rem]'>
       Courses Categories
@@ -48,9 +49,11 @@ function Courses() {
     <div className='font-WorkSans flex font-semibold text-[1.4rem] mt-[3rem] ml-[3.2rem]'>
       Courses for you
     </div >
+    <Link to='/courses2'>
     <button>
     <img src={arrowMore} className='mr-[6rem] mt-[2.5rem]'/>
     </button>
+    </Link>
     </div>
     <div className='flex flex-wrap justify-around mx-[2rem]'>
       {iterations.map((iteration) => (

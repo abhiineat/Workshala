@@ -1,30 +1,58 @@
 import React, { useState } from 'react'
 import login from '../assets/login.svg'
 import Eye from '../assets/eye.svg'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function Login() {
+  const email_valid= /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]{2,}$/;
+
   const[password,setPassword]= useState(true);
   const eyeClick=()=>{
     setPassword(!password)
   }
+  const navigate= useNavigate();
   const data={
     email: "" ,
     password: ""
      }
     const [inputData, setInputData] = useState('');
-  
+
     const handleChange = (event) => {
       setInputData({...inputData, [event.target.name]:event.target.value});
     };
   
-    const handleSubmit = (event) => {
-     event.preventDefault();
-     axios.post("https://workshala.onrender.com/login",inputData)
-     .then((response)=>{
-      console.log(response)
-     })
+    const handleSubmit = async(event) => {
+      event.preventDefault();
+      if(email_valid.test(inputData.email)){
+      try{
+       const response = await axios.post("https://workshala.onrender.com/login",inputData);
+           console.log(response)
+            navigate('/');
+        
+   }catch(err){
+   if(err.response){
+   console.log('Server responded');
+   if(err.response.status===401)
+   {
+     
+     toast.error("user not found");
+   }
+   if(err.response.status===409)
+   {
+     
+     toast.error("user already exists");
+   }
+   }
+   }
+  }
+  else{
+    toast.error("enter valid email")
+  }
 
     };
 
@@ -60,11 +88,12 @@ export default function Login() {
          </div>
          
          </form>
-         <div className='mt-[2vh] ml-[1rem] font-WorkSans font-medium max-[640px]:w-[50vw] '>Haven't Registered Yet <Link to='/register'> <button className='text-[#946CC3]'> Register Now</button></Link> </div>
+         <div className='mt-[2vh] ml-[1rem] font-WorkSans font-medium max-[640px]:w-[50vw] '>Haven't Registered Yet! <Link to='/register'> <button className='text-[#946CC3]'> Register Now</button></Link> </div>
         </div>
 
       </div>
     </div>
+    <ToastContainer/>
     </>
   )
 }

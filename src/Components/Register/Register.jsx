@@ -8,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function Register() {
+  const email_valid= /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]{2,}$/;
+  const number_valid=/^\d{10}$/;
+
   const[password,setPassword]= useState(true);
   const eyeClick=()=>{
     setPassword(!password)
@@ -22,21 +25,24 @@ function Register() {
      }
     const [inputData, setInputData] = useState('');
   
+
+
     const handleChange = (event) => {
       setInputData({...inputData, [event.target.name]:event.target.value});
     };
   
+
+
     const handleSubmit = async(event) => {
-     event.preventDefault();
+      event.preventDefault();
+      if(email_valid.test(inputData.email) && number_valid.test(inputData.number)){
+      
      try{
       // setLoading(true)
       const response = await axios.post("https://workshala.onrender.com/signUp",inputData);
           console.log(response)
-          toast.success(" ")
           navigate('/login');
-          // login(response.data.data.token);
-          // navigate('/home');
-          // setLoading(false);
+      
   }catch(err){
   if(err.response){
   console.log('Server responded');
@@ -53,6 +59,19 @@ function Register() {
   // setLoading(false);
   }
   }
+      }
+      else{
+      if(!email_valid.test(inputData.email) && number_valid.test(inputData.number)){
+        toast.error("enter valid email")
+      }
+      else if(email_valid.test(inputData.email) && !number_valid.test(inputData.number)){
+        toast.error("enter valid number")
+      }
+      else{
+        toast.error("enter valid data")
+      }
+    }
+
     };
   return (
     <>
@@ -62,7 +81,7 @@ function Register() {
         <div className='font-WorkSans font-semibold text-[3.5rem] mt-[1.5rem] ml-[3.5rem] max-[1156px]:mt-0 max-[640px]:text-[8vw] max-[500px]:ml-8 '>Register</div>
         <div className=''>{}</div>
         <div className='flex flex-wrap flex-col '>
-            <form >
+            <form onSubmit={handleSubmit}>
             <div className='flex flex-wrap flex-col'>
             <div className=" flex flex-wrap font-WorkSans font-medium text-base ml-[3.5rem] mt-[3.5rem] mb-0  max-[500px]:ml-8">Name</div>
             <input type="text" onChange={handleChange} required name="name" value={inputData.name} className="flex flex-wrap border border-black rounded-md font-WorkSans text-base w-[26rem] ml-[3.5rem] h-[2.5rem] pl-3 max-[640px]:w-[65vw] max-[500px]:ml-8  " placeholder='Enter Your Name' />
@@ -79,7 +98,7 @@ function Register() {
             </div>
             </div>
             <div>
-            <button onClick={handleSubmit} className='font-WorkSans font-medium text-sm text-white w-[26rem] rounded-md h-[2.5rem] mt-6 bg-[#946CC3] ml-[3.5rem] max-[640px]:w-[65vw] max-[500px]:ml-8'>Sign up</button>
+            <button  className='font-WorkSans font-medium text-sm text-white w-[26rem] rounded-md h-[2.5rem] mt-6 bg-[#946CC3] ml-[3.5rem] max-[640px]:w-[65vw] max-[500px]:ml-8'>Sign up</button>
             </div>
             </form>
             <div className='ml-[10rem] mt-[1rem] font-WorkSans font-medium max-[640px]:ml-[25vw]  max-[500px]:ml-[15vw]  max-[500px]:w-[57vw] '>Already Registered ! <Link to='/login'> <button className='text-[#946CC3]'> Login</button> </Link></div>
