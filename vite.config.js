@@ -10,3 +10,6 @@ export default defineConfig({
     },
   },
 })
+export default {
+  base: 'https://workshala-eight.vercel.app'
+};
