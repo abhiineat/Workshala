@@ -4,7 +4,7 @@ import Eye from '../assets/eye.svg'
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
-export default function LoginPage() {
+export default function Login() {
   const[password,setPassword]= useState(true);
   const eyeClick=()=>{
     setPassword(!password)

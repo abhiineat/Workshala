@@ -8,7 +8,8 @@ import Jobs from './Components/Jobs.jsx'
 import Profile from './Components/Profile.jsx'
 import Welcome from './Components/Welcome.jsx'
 import Home from './Home.jsx'
-import LoginPage from './Components/LoginPage.jsx'
+// import LoginPage from './Components/LoginPage.jsx'
+import Login from './Components/Login.jsx'
 import Reset from './Components/Reset password/Reset.jsx'
 import Register from './Components/Register/Register.jsx'
 import Courses from './Components/Courses.jsx'
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
    <Route path='/jobs' element={<Jobs/>}/>
    <Route path='/profile' element={<Profile/>}/>
    <Route path='/welcome' element={<Welcome/>}/>
-       <Route path='/login' element={<LoginPage/>}/>
+       <Route path='/login' element={<Login/>}/>
         <Route path='/reset' element={<Reset/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/courses' element={<Courses/>}/>
