@@ -3,12 +3,16 @@ import registerImg from '../../assets/register.svg'
 import Eye from '../../assets/eye.svg'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+// import { toast,ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
 
 function Register() {
   const[password,setPassword]= useState(true);
   const eyeClick=()=>{
     setPassword(!password)
   }
+  let [er,setEr]=useState(''); 
    const data={
     name: "",
     number: "",
@@ -21,13 +25,32 @@ function Register() {
       setInputData({...inputData, [event.target.name]:event.target.value});
     };
   
-    const handleSubmit = (event) => {
+    const handleSubmit = async(event) => {
      event.preventDefault();
-     axios.post("https://workshala.onrender.com/signUp",inputData)
-     .then((response)=>{
-      console.log(response)
-     })
-
+     try{
+      // setLoading(true)
+      const response = await axios.post("https://workshala.onrender.com/signUp",inputData);
+          console.log(response)
+          // toast.success("Login Successful")
+          // login(response.data.data.token);
+          // navigate('/home');
+          // setLoading(false);
+  }catch(err){
+  if(err.response){
+  console.log('Server responded');
+  if(err.response.status===409)
+  {
+    
+    // toast.error("user already exists");
+  }
+  // else{
+  // setErrorPassword(err.response.data.message);
+  // }}
+  // else
+  //   console.log('No Server response');
+  // setLoading(false);
+  }
+  }
     };
   return (
     <>
@@ -35,6 +58,7 @@ function Register() {
       <img className=' h-[90vh] ml-[5vw] mt-[3vh] max-[500px]:h-[50vh] max-[500px]:p-1' src={registerImg}/>
       <div className='flex flex-wrap flex-col mt-[4rem]'>
         <div className='font-WorkSans font-semibold text-[3.5rem] mt-[1.5rem] ml-[3.5rem] max-[1156px]:mt-0 max-[640px]:text-[8vw] max-[500px]:ml-8 '>Register</div>
+        <div className=''>{}</div>
         <div className='flex flex-wrap flex-col '>
             <form >
             <div className='flex flex-wrap flex-col'>
@@ -62,7 +86,7 @@ function Register() {
 
       </div>
       </div>
-      
+      {/* <ToastContainer/> */}
     </>
   )
 }

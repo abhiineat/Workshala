@@ -11,6 +11,7 @@ import Home from './Home.jsx'
 import LoginPage from './components/LoginPage.jsx'
 import Reset from './components/Reset password/Reset.jsx'
 import Register from './components/Register/Register.jsx'
+import Courses from './Components/Courses.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
    <>
@@ -22,6 +23,8 @@ const router = createBrowserRouter(
        <Route path='/login' element={<LoginPage/>}/>
         <Route path='/reset' element={<Reset/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/courses' element={<Courses/>}/>
+        
    </>
   )
 )
