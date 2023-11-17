@@ -20,7 +20,6 @@ function Companies () {
     for (let i = 0; i < numberOfCards; i += 3) {
       cards.push(
         <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap">
-          {/* Render cards based on the fetched jobs */}
           {apiData.slice(i, i + 3).map((company, index) => (
             <Card key={index} company={company} />
           ))}
