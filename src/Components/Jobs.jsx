@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Salary from '../assets/Salary.png'
@@ -7,8 +8,12 @@ import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
 import Tata from '../assets/tata logo.png'
 import Name from '../assets/tataname.png'
+import drop from '../assets/Down Button.png'
+import logo from '../assets/logodetail.png'
 
-const Companycard = () => (
+
+
+const Companycard = ({openJobDetails}) => (
   <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col">
     <div className="flex">
       <div>
@@ -50,21 +55,59 @@ const Companycard = () => (
    </div>
    <div className="text-card-text">5 Days ago</div>
    <hr class="border-2 border-gray-200 my-4 w-full"/>
-   <div className="text-card-text cursor-pointer">View Details</div>
+   <div className="text-card-text cursor-pointer" onClick={openJobDetails}>View Details</div>
   </div>
 )
-const numberOfCards = 15;
+
+
+const Jobdetails = (closeJobDetails) => (
+    <div className="font-inter border-2 rounded-lg">
+      <div className="flex justify-center mt-5"><div className="cursor-pointer" onClick={closeJobDetails.closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
+      <div className="flex justify-between  mt-5">
+        <div className="flex items-center justify-center">
+          <div className="ml-20"><img src={logo}/></div>
+          <div className="ml-4 flex-col items-center justify-center">
+            <div className="text-[2rem] font-semibold">Kraftsbase</div>
+            <div>A Full-Service , Design-Driven Studio, For Early And Growing Startups</div>
+            <div className="text-[1.5rem]">Full Stack Developer Intern</div>
+          </div>
+        </div>
+        <div className="mr-40 flex gap-8">
+          <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Apply</button></div>
+          <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Save</button></div>
+        </div>
+      </div>
+      <div className="flex ml-24 text-[1.688rem] font-semibold  mt-5">Skills</div>
+      <div className="flex gap-4 ml-24  mt-5">
+        <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
+        <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
+      </div>
+      <div className="ml-24  mt-5 flex"><div className="bg-[#DEC1FF] rounded-xl px-2">HTML5, CSS3, JavaScript, SASS, ReactJS, NextJS, Shopify, MongoDB,<br></br>
+Firebase, ExpressJS</div></div>
+      <div className="ml-24 text-[1.688rem] font-semibold  mt-5">About the job</div>
+      <div className="ml-24  mt-5 flex ">Kraftbase is a dynamic full-service studio renowned for its commitment to excellence in Website Development,<br></br>
+App Development, and Custom Software Development. We are currently seeking a talented and enthusiastic Full Stack<br></br>
+Developer intern to join our innovative team.</div>
+    </div>
+)
+function Jobs() {
+  const [isJobDetailsOpen, setJobDetailsOpen] = useState(false);
+
+  const openJobDetails = () => setJobDetailsOpen(true);
+  const closeJobDetails = () => setJobDetailsOpen(false);
+
+  const numberOfCards = 15;
 const Companycards = [];
 for (let i = 0; i < numberOfCards; i += 3) {
     Companycards.push(
       <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap mx-5">
-       <Companycard/>
-       <Companycard/>
-       <Companycard/>
+       <Companycard openJobDetails={openJobDetails}/>
+       <Companycard openJobDetails={openJobDetails}/>
+       <Companycard openJobDetails={openJobDetails}/>
       </div>
     );
   }
-function Jobs() {
+  
     return( 
          <>
          <Navbar/>
@@ -78,6 +121,14 @@ function Jobs() {
             </div>
         </div>
        </div>
+       {isJobDetailsOpen && (
+        <div className="fixed inset-0  flex items-end justify-center overflow-x-hidden md:overflow-y-auto overflow-y-hidden">
+          <div className="relative w-full h-[35rem]  bg-white p-6 rounded-2xl">
+            <Jobdetails closeJobDetails={closeJobDetails}/>
+          </div>
+        </div>
+      )}
+
        <Footer/>
          </>
 

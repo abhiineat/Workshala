@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import Logo from "../assets/companyLogo.png";
 import Star from "../assets/Star.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,7 +19,7 @@ export const Card = ({company}) => (
           <img src={Star} alt="Star" style={{ height: 20 }} />
         </div>
         <div>3.3</div> 
-        <div>1k Reviews </div>
+        <div>1k Reviews</div>
       </div>
     </div>
     <div className="flex justify-center items-center text-2xl font-bold">{company.companyName}</div>
@@ -107,8 +106,6 @@ const CompaniesCard = () => {
     </div>
     </div>
     </div>
-
-    
   );
 };
 
