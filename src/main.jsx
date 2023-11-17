@@ -8,9 +8,9 @@ import Jobs from './Components/Jobs.jsx'
 import Profile from './Components/Profile.jsx'
 import Welcome from './Components/Welcome.jsx'
 import Home from './Home.jsx'
-import LoginPage from './components/LoginPage.jsx'
-import Reset from './components/Reset password/Reset.jsx'
-import Register from './components/Register/Register.jsx'
+import LoginPage from './Components/LoginPage.jsx'
+import Reset from './Components/Reset password/Reset.jsx'
+import Register from './Components/Register/Register.jsx'
 import Courses from './Components/Courses.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
