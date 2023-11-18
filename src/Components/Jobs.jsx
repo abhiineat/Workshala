@@ -1,37 +1,32 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Salary from '../assets/Salary.png'
 import Shuttle from '../assets/Shuttle.png'
 import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
-import Tata from '../assets/tata logo.png'
-import Name from '../assets/tataname.png'
 import drop from '../assets/Down Button.png'
 import logo from '../assets/logodetail.png'
-
-
-
-const Companycard = ({openJobDetails}) => (
-  <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col">
-    <div className="flex">
+import axios from "axios";
+const Companycard = ({openJobDetails,company}) => (
+  <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
+    <div className="flex justify-evenly">
       <div>
    <div className="flex items-center"><div className="px-2 border-2 border-black rounded flex items-center gap-2"><div class="w-4 h-4 bg-custom2-bg rounded-full"></div>Actively hiring</div></div>
 
-   <div className="font-semibold text-3xl">Fundraising <br></br> Volunteering</div>
-   <div>Odisha Development <br></br>Management programme<br></br>(ODMP)</div>
+   <div className="font-semibold text-3xl mt-5">{company.companyName}</div>
+   <div className="mt-5">{company.industry}</div>
    </div>
-   <div className="flex-col ml-24 mt-5">
-   <div className="flex justify-center items-center"><img src={Name}/></div>
-   <div  className="flex justify-center items-center"><img src={Tata}/></div>
+   <div className="ml-24 h-20 flex">
+   <div  className="flex justify-center items-center"><img src={company.imageUrl} style={{width:50 , height:50}}/></div>
    </div>
    </div>
    <div>
-    <div className="flex justify-between md:gap-10 gap-2 my-2 flex-wrap">
+    <div className="flex justify-between md:gap-10 gap-2 my-2 flex-wrap mt-5">
         <div className="flex justify-center items-center gap-2 flex-wrap">
          <div><img src={Work}/></div>
-         <div>Work from Home</div>
+         <div>Home</div>
         </div>
         <div className="flex justify-center items-center gap-2 flex-wrap">
          <div><img src={Shuttle}/></div>
@@ -58,7 +53,6 @@ const Companycard = ({openJobDetails}) => (
    <div className="text-card-text cursor-pointer" onClick={openJobDetails}>View Details</div>
   </div>
 )
-
 
 const Jobdetails = (closeJobDetails) => (
     <div className="font-inter border-2 rounded-lg">
@@ -99,14 +93,23 @@ function Jobs() {
   const openJobDetails = () => setJobDetailsOpen(true);
   const closeJobDetails = () => setJobDetailsOpen(false);
 
+  const [apiData, setApiData] = useState([]);
   const numberOfCards = 15;
-const Companycards = [];
-for (let i = 0; i < numberOfCards; i += 3) {
-    Companycards.push(
-      <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap mx-5">
-       <Companycard openJobDetails={openJobDetails}/>
-       <Companycard openJobDetails={openJobDetails}/>
-       <Companycard openJobDetails={openJobDetails}/>
+  const Companycards = [];
+
+  useEffect(() => {
+    axios
+      .get("https://workshala.onrender.com/jobs")
+      .then((response) => setApiData(response.data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+    for (let i = 0; i < numberOfCards; i += 3) {
+      Companycards.push(
+      <div key={i} className="flex justify-around my-5 md:my-10 flex-wrap">
+        {apiData.slice(i, i + 3).map((company, index) => (
+          <Companycard key={index} company={company} />
+        ))}
       </div>
     );
   }
@@ -119,7 +122,7 @@ for (let i = 0; i < numberOfCards; i += 3) {
                 <p className="text-3xl font-bold font-worksans text-worksans">Jobs for You</p>
         </div>
         <div>
-            <div className="bg-opacity-10 flex-wrap md:m-0">
+            <div className="bg-opacity-10 flex-wrap md:m-0 ">
             {Companycards}
             </div>
         </div>

@@ -10,21 +10,23 @@ import axios from "axios";
 export const Card = ({company}) => (
   <div className="text-black border-2 border-customColor bg-white rounded-3xl flex-col flex-wrap m-5">
     <div className="flex justify-evenly items-center">
-      <img src={company.imageUrl} alt="Company Logo" style={{width:100 , height:100}} />
+      <img src={company.companyLogo} alt="Company Logo" style={{width:100 , height:100}} />
     </div>
-    <div className="bg-custom1-bg h-12 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden lg:block">
-      <div className="font-semibold flex justify-center items-center">{company.companyName}</div>
+    <div className="bg-custom1-bg h-14 flex-col justify-center items-center text-center mx-24 my-10 rounded-xl overflow-hidden hidden lg:block">
+      <div className="">
+      <div className="font-semibold flex justify-center items-center ">{company.companyName}</div>
       <div className="flex justify-evenly items-center">
         <div>
           <img src={Star} alt="Star" style={{ height: 20 }} />
         </div>
-        <div>3.3</div> 
+        <div>3.3</div>
         <div>1k Reviews</div>
+      </div>
       </div>
     </div>
     <div className="flex justify-center items-center text-2xl font-bold">{company.companyName}</div>
     <div className="flex justify-center items-center m-5">
-      {company.description}
+      {company.companyType}
     </div>
     <div className="flex justify-center my-5">
       <button className="bg-custom-bg rounded text-white py-2 px-4  ">
@@ -40,7 +42,7 @@ const CompaniesCard = () => {
 
   useEffect(() => {
     axios
-      .get("https://workshala.onrender.com/jobs")
+      .get("https://workshala.onrender.com/getCompanies")
       .then((response) => setApiData(response.data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
