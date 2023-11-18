@@ -16,8 +16,8 @@ function Companies () {
         .then((response) => setApiData(response.data))
         .catch((error) => console.error("Error fetching data:", error));
     }, []);
-  
-    for (let i = 0; i < numberOfCards; i += 3) {
+
+      for (let i = 0; i < numberOfCards; i += 3) {
       cards.push(
         <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap">
           {apiData.slice(i, i + 3).map((company, index) => (
@@ -36,34 +36,44 @@ function Companies () {
             <div className="md:flex md:justify-evenly justify-center items-center mb-10 "> 
                <div className=" flex justify-center items-center">
                 <div class="w-64 my-10 md:m-0 ml-3">
-                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom ">
+                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom "
+                >
                 <option value="">Location</option>
-                <option value="option1">Ghaziabad</option>
-                <option value="option2">Delhi</option>
-                <option value="option3">Gurgoan</option>
-                <option value="option4">Faridabad</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Jaipur">Jaipur</option>
+                <option value="Pune">Pune</option>
+                <option value="Greater Noida">Greater Noida</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolakata">Kolakata</option>
+                <option value="Noida">Noida</option>
+                <option value="Chennai">Chennai</option>
                 </select>
                 </div>
                 </div>
                 <div className=" flex justify-center items-center">
                 <div class="w-64 my-10 md:m-0 ml-3">
-                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom">
+                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom"
+                >
                 <option value="">Industry</option>
-                <option value="option1">Large</option>
-                <option value="option2">Small</option>
-                <option value="option3">Micro</option>
-                <option value="option4">Huge</option>
+                <option value="Product Based & IT Services">Product Based & IT Services</option>
+                <option value="Product Based">Product Based</option>
+                <option value="IT Services">IT Services</option>
+                <option value="Transport E-Commerce">Transport E-Commerce</option>
+                <option value="Electronics Industry">Electronics Industry</option>
+                <option value="Edutech">Edutech</option>
+                <option value="Electronics and Goods">Electronics and Goods</option>
+
                 </select>
                 </div>
                 </div>
                 <div className="flex justify-center items-center">
                 <div class="w-64 my-10 md:m-0 ml-3 ">
-                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom">
+                <select class="block appearance-none w-full bg-white border border-gray-400 px-4 py-2 pr-8 rounded shadow-custom"
+                >
                 <option value="">Company Type</option>
-                <option value="option1">Private</option>
-                <option value="option2">Public</option>
-                <option value="option3">Large</option>
-                <option value="option4">Small</option>
+                <option value="Foreign MNC">Foreign MNC</option>
+                <option value="Indian MNC">Indian MNC</option>
                 </select>
                 </div>
                 </div>

@@ -62,30 +62,33 @@ const Companycard = ({openJobDetails}) => (
 
 const Jobdetails = (closeJobDetails) => (
     <div className="font-inter border-2 rounded-lg">
-      <div className="flex justify-center mt-5"><div className="cursor-pointer" onClick={closeJobDetails.closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
-      <div className="flex justify-between  mt-5">
-        <div className="flex items-center justify-center">
-          <div className="ml-20"><img src={logo}/></div>
-          <div className="ml-4 flex-col items-center justify-center">
+      <div className="flex justify-center mt-5 flex-wrap"><div className="cursor-pointer" onClick={closeJobDetails.closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
+      <div className="flex md:justify-between  justify-center   mt-5 flex-wrap">
+        <div className="flex items-center justify-center flex-wrap">
+          <div className="md:ml-20"><img src={logo}/></div>
+          <div className="ml-4 flex-col justify-center  flex-wrap items-center">
             <div className="text-[2rem] font-semibold">Kraftsbase</div>
             <div>A Full-Service , Design-Driven Studio, For Early And Growing Startups</div>
             <div className="text-[1.5rem]">Full Stack Developer Intern</div>
           </div>
         </div>
-        <div className="mr-40 flex gap-8">
+        <div className="flex justify-center items-center flex-wrap  sm:ml-60 mt-5">
+        <div className=" flex gap-8 md:ml-0  md:mt-0 mt-4 justify md:mr-40">
           <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Apply</button></div>
           <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Save</button></div>
         </div>
+        </div>
+     
       </div>
-      <div className="flex ml-24 text-[1.688rem] font-semibold  mt-5">Skills</div>
-      <div className="flex gap-4 ml-24  mt-5">
+      <div className="flex md:ml-24 text-[1.688rem] font-semibold  mt-5">Skills</div>
+      <div className="flex gap-4 md:ml-24  md:mt-5 ">
         <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
         <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
       </div>
-      <div className="ml-24  mt-5 flex"><div className="bg-[#DEC1FF] rounded-xl px-2">HTML5, CSS3, JavaScript, SASS, ReactJS, NextJS, Shopify, MongoDB,<br></br>
+      <div className="ml-24  mt-5  hidden md:flex"><div className="bg-[#DEC1FF] rounded-xl px-2">HTML5, CSS3, JavaScript, SASS, ReactJS, NextJS, Shopify, MongoDB,<br></br>
 Firebase, ExpressJS</div></div>
-      <div className="ml-24 text-[1.688rem] font-semibold  mt-5">About the job</div>
-      <div className="ml-24  mt-5 flex ">Kraftbase is a dynamic full-service studio renowned for its commitment to excellence in Website Development,<br></br>
+      <div className="ml-24 text-[1.688rem] font-semibold  mt-5 hidden lg:flex">About the job</div>
+      <div className="ml-24  mt-5  hidden lg:flex">Kraftbase is a dynamic full-service studio renowned for its commitment to excellence in Website Development,<br></br>
 App Development, and Custom Software Development. We are currently seeking a talented and enthusiastic Full Stack<br></br>
 Developer intern to join our innovative team.</div>
     </div>
