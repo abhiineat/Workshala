@@ -41,7 +41,12 @@ function Register() {
       // setLoading(true)
       const response = await axios.post("https://workshala.onrender.com/signUp",inputData);
           console.log(response)
-          navigate('/login');
+          toast("verify your email")
+          // navigate('/login');
+          setTimeout(() => {
+            // Navigate to the next page using useNavigate
+            navigate('/login');
+          }, 5600);
       
   }catch(err){
   if(err.response){
@@ -76,7 +81,7 @@ function Register() {
   return (
     <>
         < div className='flex flex-wrap flex-row max-[1156px]:justify-center ' >
-      <img className=' h-[90vh] ml-[5vw] mt-[3vh] max-[500px]:h-[50vh] max-[500px]:p-1' src={registerImg}/>
+      <img className=' h-[90vh] ml-[7vw] mt-[3vh] max-[500px]:h-[50vh] max-[500px]:p-1' src={registerImg}/>
       <div className='flex flex-wrap flex-col mt-[4rem]'>
         <div className='font-WorkSans font-semibold text-[3.5rem] mt-[1.5rem] ml-[3.5rem] max-[1156px]:mt-0 max-[640px]:text-[8vw] max-[500px]:ml-8 '>Register</div>
         <div className=''>{}</div>
