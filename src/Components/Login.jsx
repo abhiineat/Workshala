@@ -32,7 +32,7 @@ export default function Login() {
       try{
        const response = await axios.post("https://workshala.onrender.com/login",inputData);
            console.log(response)
-            navigate('/');
+            navigate('/welcome');
         
    }catch(err){
    if(err.response){
@@ -60,7 +60,7 @@ export default function Login() {
   return (
     <>
     <div className='flex flex-wrap flex-row max-[1024px]:justify-center' >
-      <img className=' h-[90vh] ml-[5vw] mt-[2vh] max-[640px]:ml-0 max-[640px]:h-[30rem] max-[420px]:mt-0 max-[420px]:h-[20rem]' src={login}/>
+      <img className=' h-[90vh] ml-[8vw] mt-[2vh] max-[640px]:ml-0 max-[640px]:h-[30rem] max-[420px]:mt-0 max-[420px]:h-[20rem]' src={login}/>
       <div className="mt-[10vh] ml-[5vw] flex flex-wrap flex-col max-[420px]:mt-0  max-[420px]:pt-0 max-[640px]:m-0 ">
         <div className="loginHead font-WorkSans font-medium text-[3.5rem] max-[640px]:text-[9vw] max-[420px]:text-[12vw] ">Login</div>
         <div className="mt-[9vh] flex flex-wrap flex-col ">

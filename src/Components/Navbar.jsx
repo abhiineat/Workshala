@@ -21,7 +21,7 @@ function Navbar () {
     </Link>
     <ul className='lg:flex hidden gap-6 text-xl m-2 '>
        <Link to='/'> <li className="hover:text-custom-text">Home</li></Link>
-        <li className='cursor-pointer hover:text-customColor'>Services</li>
+       <Link to='/courses'> <li className='cursor-pointer hover:text-customColor'>Services</li></Link>
          <Link to='/companies'><li className='hover:text-customColor'>Companies</li></Link>
          <Link to='/jobs'><li className='hover:text-customColor'>Jobs</li></Link>
     </ul>
