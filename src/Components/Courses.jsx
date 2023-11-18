@@ -14,6 +14,7 @@ function Courses() {
 
   return (
     <>
+    
     <Navbar/>
     <div className='flex flex-wrap justify-between'>
     <div>
