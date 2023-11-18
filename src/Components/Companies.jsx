@@ -10,9 +10,9 @@ function Companies () {
     const numberOfCards = 15;
     const cards = [];
 
-    useEffect(() => {
+     useEffect(() => {
       axios
-        .get("https://workshala.onrender.com/jobs")
+        .get("https://workshala.onrender.com/getCompanies")
         .then((response) => setApiData(response.data))
         .catch((error) => console.error("Error fetching data:", error));
     }, []);
