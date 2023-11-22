@@ -5,8 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
-
 export const Card = ({company}) => (
   <div className="text-black border-2 border-customColor bg-white rounded-3xl flex-col flex-wrap m-5">
     <div className="flex justify-evenly items-center">
@@ -35,11 +33,8 @@ export const Card = ({company}) => (
     </div>
   </div>
 );
-
 const CompaniesCard = () => {
-
   const [apiData, setApiData] = useState([]);
-
   useEffect(() => {
     axios
       .get("https://workshala.onrender.com/getCompanies")
