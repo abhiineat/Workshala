@@ -7,10 +7,7 @@ import Shuttle from '../assets/Shuttle.png'
 import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
 import drop from '../assets/Down Button.png'
-import logo from '../assets/logodetail.png'
 import axios from "axios";
-
-
 const Companycard = ({company,openJobDetails}) => (
   <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
     <div className="flex justify-evenly">
