@@ -7,9 +7,8 @@ import Shuttle from '../assets/Shuttle.png'
 import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
 import drop from '../assets/Down Button.png'
-import logo from '../assets/logodetail.png'
 import axios from "axios";
-const Companycard = ({openJobDetails,company}) => (
+const Companycard = ({company,openJobDetails}) => (
   <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
     <div className="flex justify-evenly">
       <div>
@@ -50,20 +49,19 @@ const Companycard = ({openJobDetails,company}) => (
    </div>
    <div className="text-card-text">5 Days ago</div>
    <hr class="border-2 border-gray-200 my-4 w-full"/>
-   <div className="text-card-text cursor-pointer" onClick={openJobDetails}>View Details</div>
+   <div className="text-card-text cursor-pointer" onClick={() => openJobDetails(company)}>View Details</div>
   </div>
 )
-
-const Jobdetails = (closeJobDetails) => (
-    <div className="font-inter border-2 rounded-lg">
-      <div className="flex justify-center mt-5 flex-wrap"><div className="cursor-pointer" onClick={closeJobDetails.closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
+const Jobdetails = ({closeJobDetails,selectedCompany}) => (
+<div className="font-inter border-2 rounded-lg">
+      <div className="flex justify-center mt-5 flex-wrap"><div className="cursor-pointer" onClick={closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
       <div className="flex md:justify-between  justify-center   mt-5 flex-wrap">
         <div className="flex items-center justify-center flex-wrap">
-          <div className="md:ml-20"><img src={logo}/></div>
+          <div className="md:ml-20"><img src={selectedCompany.imageUrl} style={{width:50 , height:50}}/></div>
           <div className="ml-4 flex-col justify-center  flex-wrap items-center">
-            <div className="text-[2rem] font-semibold">Kraftsbase</div>
+            <div className="text-[2rem] font-semibold">{selectedCompany.companyName}</div>
             <div>A Full-Service , Design-Driven Studio, For Early And Growing Startups</div>
-            <div className="text-[1.5rem]">Full Stack Developer Intern</div>
+            <div className="text-[1.5rem]">{selectedCompany.description}</div>
           </div>
         </div>
         <div className="flex justify-center items-center flex-wrap  sm:ml-60 mt-5">
@@ -82,16 +80,24 @@ const Jobdetails = (closeJobDetails) => (
       <div className="ml-24  mt-5  hidden md:flex"><div className="bg-[#DEC1FF] rounded-xl px-2">HTML5, CSS3, JavaScript, SASS, ReactJS, NextJS, Shopify, MongoDB,<br></br>
 Firebase, ExpressJS</div></div>
       <div className="ml-24 text-[1.688rem] font-semibold  mt-5 hidden lg:flex">About the job</div>
-      <div className="ml-24  mt-5  hidden lg:flex">Kraftbase is a dynamic full-service studio renowned for its commitment to excellence in Website Development,<br></br>
-App Development, and Custom Software Development. We are currently seeking a talented and enthusiastic Full Stack<br></br>
-Developer intern to join our innovative team.</div>
+      <div className="ml-24  mt-5  hidden lg:flex">{selectedCompany.detailedJobDescription}</div>
     </div>
 )
+
+
+
 function Jobs() {
   const [isJobDetailsOpen, setJobDetailsOpen] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
-  const openJobDetails = () => setJobDetailsOpen(true);
-  const closeJobDetails = () => setJobDetailsOpen(false);
+  const openJobDetails = (company) => { 
+    setJobDetailsOpen(true);
+    setSelectedCompany(company);
+  }
+  const closeJobDetails = (company) => {
+    setJobDetailsOpen(false);
+    setSelectedCompany(company);
+  }
 
   const [apiData, setApiData] = useState([]);
   const numberOfCards = 15;
@@ -108,12 +114,11 @@ function Jobs() {
       Companycards.push(
       <div key={i} className="flex justify-around my-5 md:my-10 flex-wrap">
         {apiData.slice(i, i + 3).map((company, index) => (
-          <Companycard key={index} company={company} />
+          <Companycard key={index} company={company} openJobDetails={openJobDetails}/>
         ))}
       </div>
     );
   }
-  
     return( 
          <>
          <Navbar/>
@@ -130,14 +135,12 @@ function Jobs() {
        {isJobDetailsOpen && (
         <div className="fixed inset-0  flex items-end justify-center overflow-x-hidden md:overflow-y-auto overflow-y-hidden">
           <div className="relative w-full h-[35rem]  bg-white p-6 rounded-2xl">
-            <Jobdetails closeJobDetails={closeJobDetails}/>
+          <Jobdetails closeJobDetails={closeJobDetails} selectedCompany={selectedCompany}/>
           </div>
-        </div>
+          </div>
       )}
-
        <Footer/>
-         </>
-
+         </>        
     )
 }
 export default Jobs
