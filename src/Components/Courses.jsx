@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{ useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import coursesLady from "../assets/cousesLady.png";
@@ -7,11 +7,11 @@ import CategoriesCard from './CategoriesCard';
 import CoursesCard from './CoursesCard';
 import arrowMore from "../assets/arrowMore.svg";
 import { Link } from 'react-router-dom';
+
 function Courses() {
   const titleArray = ["UI/UX Designing","UI/UX Designing", "Web Development" ,"Robotics", "Robotics"];
   const iterations = Array.from({ length: 6 }, (_, index) => index);
   
-
   return (
     <>
     
@@ -31,6 +31,8 @@ function Courses() {
       />
       <div className='flex'>
       <button
+       onClick={handleSubmit}
+       name='search'
         className="rounded-2xl px-12 py-[10px] mt-7 bg-[#FF5E6E] text-xs text-white shadow-lg hover:bg-rose-500 w-2/6 ml-[3rem]">
         Search
       </button>
