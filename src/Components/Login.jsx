@@ -32,6 +32,7 @@ export default function Login() {
       try{
        const response = await axios.post("https://workshala.onrender.com/login",inputData);
            console.log(response)
+           localStorage.setItem("accessToken",response.data.accessToken)
             navigate('/welcome');
         
    }catch(err){
