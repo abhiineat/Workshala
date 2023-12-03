@@ -10,16 +10,25 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Courses() {
+  const [arrlength,setArrlength]=useState(0);
   const titleArray = ["UI/UX Designing","UI/UX Designing", "Web Development" ,"Robotics", "Robotics"];
-  const iterations = Array.from({ length: 6 }, (_, index) => index);
+  const [search, setSearch] = useState("");
+ const [data,setData]=useState([]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("")
-  //     .then((response) => (response.data))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
-  
+ const searchHandler = (event) => {
+  setSearch(event.target.value);
+};
+ const handleSubmit = async () => {
+  try {
+    const searchResponse = await axios.get(`https://course-recommendation-modal2.onrender.com/recommendations/${search}`);
+    setData(searchResponse.data.recommendations)
+    setArrlength(searchResponse.data.recommendations.length)
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
+const iterations = Array.from({ length: arrlength},);
+
   return (
     <>
     
@@ -33,13 +42,13 @@ function Courses() {
       <input
         className="text-xs h-[35px] px-10 py-4 w-4/5 ml-[3rem] bg-[#FFFCFC] rounded-2xl shadow-lg mt-6 focus:border-none focus:outline-none"
         type="text"
-        // value={search}
-        // onChange={searchHandler}
+        value={search}
+        onChange={searchHandler}
          placeholder="What do you want to learn?"
       />
       <div className='flex'>
       <button
-      //  onClick={handleSubmit}
+       onClick={handleSubmit}
        name='search'
         className="rounded-2xl px-12 py-[10px] mt-7 bg-[#FF5E6E] text-xs text-white shadow-lg hover:bg-rose-500 w-2/6 ml-[3rem]">
         Search
