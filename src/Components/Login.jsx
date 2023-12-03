@@ -6,11 +6,11 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import SyncLoader from "react-spinners/SyncLoader"
 
 export default function Login() {
   const email_valid= /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]{2,}$/;
-
+  let [loading, setLoading] = useState(false);
   const[password,setPassword]= useState(true);
   const eyeClick=()=>{
     setPassword(!password)
@@ -28,14 +28,17 @@ export default function Login() {
   
     const handleSubmit = async(event) => {
       event.preventDefault();
+      setLoading(true)
       if(email_valid.test(inputData.email)){
       try{
        const response = await axios.post("https://workshala.onrender.com/login",inputData);
            console.log(response)
+           setLoading(false)
            localStorage.setItem("accessToken",response.data.accessToken)
             navigate('/welcome');
         
    }catch(err){
+    setLoading(false)
    if(err.response){
    console.log('Server responded');
    if(err.response.status===401)
@@ -60,6 +63,11 @@ export default function Login() {
   
   return (
     <>
+    <div>{loading ? <>
+     <div  className=' fixed top-0 left-0 pl-19 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50'>
+     <SyncLoader color='white' className='justify-center' />
+     </div>
+     </> : null}</div>
     <div className='flex flex-wrap flex-row max-[1024px]:justify-center' >
       <img className=' h-[90vh] ml-[8vw] mt-[2vh] max-[640px]:ml-0 max-[640px]:h-[30rem] max-[420px]:mt-0 max-[420px]:h-[20rem]' src={login}/>
       <div className="mt-[10vh] ml-[5vw] flex flex-wrap flex-col max-[420px]:mt-0  max-[420px]:pt-0 max-[640px]:m-0 ">
