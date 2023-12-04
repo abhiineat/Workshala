@@ -9,7 +9,7 @@ import SyncLoader from "react-spinners/SyncLoader"
 
 function Register() {
   const email_valid= /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]{2,}$/;
-  const number_valid=/^\d{10}$/;
+  const number_valid=/^[6-9]\d{9}$/;
   let [loading, setLoading] = useState(false);
   let [passwordValid,setPasswordValid]=useState(false);
   const[password,setPassword]= useState(true);
@@ -97,7 +97,7 @@ function Register() {
      </div>
      </> : null}</div>
         < div className='flex flex-wrap flex-row max-[1156px]:justify-center ' >
-      <img className=' h-[90vh] ml-[7vw] mt-[3vh] max-[500px]:h-[50vh] max-[500px]:p-1' src={registerImg}/>
+      <img className=' h-[90vh] ml-[10vw] mt-[3vh] max-[500px]:h-[50vh] max-[500px]:p-1' src={registerImg}/>
       <div className='flex flex-wrap flex-col mt-[4rem]'>
         <div className='font-WorkSans font-semibold text-[3.5rem] mt-[1.5rem] ml-[3.5rem] max-[1156px]:mt-0 max-[640px]:text-[8vw] max-[500px]:ml-8 '>Register</div>
         <div className=''>{}</div>

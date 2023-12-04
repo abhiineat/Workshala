@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import login from '../assets/login.svg'
+import loginImg from '../assets/login.svg'
 import Eye from '../assets/eye.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SyncLoader from "react-spinners/SyncLoader"
+import SyncLoader from "react-spinners/SyncLoader";
+import { useDispatch } from "react-redux";
+import { login } from "../Auth/authReducer";
 
 export default function Login() {
+  const dispatch = useDispatch();
   const email_valid= /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9.-]{2,}$/;
   let [loading, setLoading] = useState(false);
   const[password,setPassword]= useState(true);
@@ -34,8 +37,8 @@ export default function Login() {
        const response = await axios.post("https://workshala.onrender.com/login",inputData);
            console.log(response)
            setLoading(false)
-           localStorage.setItem("accessToken",response.data.accessToken)
-            navigate('/welcome');
+           dispatch(login());
+           navigate('/welcome');
         
    }catch(err){
     setLoading(false)
@@ -69,7 +72,7 @@ export default function Login() {
      </div>
      </> : null}</div>
     <div className='flex flex-wrap flex-row max-[1024px]:justify-center' >
-      <img className=' h-[90vh] ml-[8vw] mt-[2vh] max-[640px]:ml-0 max-[640px]:h-[30rem] max-[420px]:mt-0 max-[420px]:h-[20rem]' src={login}/>
+      <img className=' h-[90vh] ml-[13vw] mt-[2vh] max-[640px]:ml-0 max-[640px]:h-[30rem] max-[420px]:mt-0 max-[420px]:h-[20rem]' src={loginImg}/>
       <div className="mt-[10vh] ml-[5vw] flex flex-wrap flex-col max-[420px]:mt-0  max-[420px]:pt-0 max-[640px]:m-0 ">
         <div className="loginHead font-WorkSans font-medium text-[3.5rem] max-[640px]:text-[9vw] max-[420px]:text-[12vw] ">Login</div>
         <div className="mt-[9vh] flex flex-wrap flex-col ">
