@@ -8,7 +8,7 @@ function CoursesCard(props) {
     <>
     <div className="w-[367px] mt-12 rounded-lg shadow-xl cursor-pointer">
         <img src={courses} className=" w-[] h-[] rounded-lg"/>
-        <h2 className="ml-8 mt-2 text-lg font-bold">{props.key}</h2>
+        <h2 className="ml-8 mt-2 text-lg font-bold">{props.title[0]}</h2>
         <div className="flex mt-3 place-items-center">
             <img src={coursesEllpise} className="ml-8 mr-3 w-[50px] h-[50px]"/>
                 <p className="text-xs">Aman Kumar <br />IITian from BHU, 3year of experience</p>

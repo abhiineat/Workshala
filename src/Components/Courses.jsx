@@ -8,22 +8,27 @@ import CoursesCard from './CoursesCard';
 import arrowMore from "../assets/arrowMore.svg";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import SyncLoader from "react-spinners/SyncLoader"
 
 function Courses() {
-  const [arrlength,setArrlength]=useState(0);
+  const [arrlength,setArrlength]=useState(6);
   const titleArray = ["UI/UX Designing","UI/UX Designing", "Web Development" ,"Robotics", "Robotics"];
   const [search, setSearch] = useState("");
  const [data,setData]=useState([]);
-
+ let [loading, setLoading] = useState(false);
  const searchHandler = (event) => {
   setSearch(event.target.value);
 };
  const handleSubmit = async () => {
+  setLoading(true)
   try {
     const searchResponse = await axios.get(`https://course-recommendation-modal2.onrender.com/recommendations/${search}`);
     setData(searchResponse.data.recommendations)
+    setLoading(false)
+    console.log(searchResponse)
     setArrlength(searchResponse.data.recommendations.length)
   } catch (error) {
+    setLoading(false)
     console.error('Error fetching data:', error);
   }
 };
@@ -31,7 +36,11 @@ const iterations = Array.from({ length: arrlength},);
 
   return (
     <>
-    
+    <div>{loading ? <>
+     <div  className=' fixed top-0 left-0 pl-19 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50'>
+     <SyncLoader color='white' className='justify-center' />
+     </div>
+     </> : null}</div>
     <Navbar/>
     <div className='flex flex-wrap justify-between'>
     <div>
@@ -77,8 +86,8 @@ const iterations = Array.from({ length: arrlength},);
     </Link>
     </div>
     <div className='flex flex-wrap justify-around mx-[2rem]'>
-      {iterations.map((iteration) => (
-        <CoursesCard key={iteration} />
+      {data.map((data,index) => (
+        <CoursesCard title={data} key={index} />
       ))}
       
     </div>

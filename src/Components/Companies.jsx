@@ -4,19 +4,26 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Card } from "./ComapaniesCard";
 import axios from "axios";
-
+import SyncLoader from "react-spinners/SyncLoader"
 function Companies () {
     const [apiData, setApiData] = useState([]);
     const [locationFilter, setLocationFilter] = useState("");
     const [industryFilter, setIndustryFilter] = useState("");
     const [companyTypeFilter, setCompanyTypeFilter] = useState("");
+    let [loading, setLoading] = useState(true);
     const numberOfCards = 15;
     const cards = [];
     useEffect(() => {
       axios
         .get("https://workshala.onrender.com/getCompanies")
-        .then((response) => setApiData(response.data))
-        .catch((error) => console.error("Error fetching data:", error));
+        .then((response) => {setApiData(response.data)
+          setLoading(false)
+        }
+        )
+        .catch((error) => {console.error("Error fetching data:", error)
+        setLoading(false)
+      }
+        );
     }, []); 
 
     const filteredData = apiData
@@ -46,6 +53,11 @@ function Companies () {
     }
     return(
         <>
+        <div>{loading ? <>
+     <div  className=' fixed top-0 left-0 pl-19 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50'>
+     <SyncLoader color='white' className='justify-center' />
+     </div>
+     </> : null}</div>
         <Navbar/>
         <div>
             <div className="flex items-center py-10 pl-10 bg-service-bg bg-opacity-10 mb-10 mt-5">
