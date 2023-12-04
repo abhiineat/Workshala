@@ -6,11 +6,11 @@ import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 export const Card = ({ company, locationFilter, industryFilter, companyTypeFilter }) => {
-  const isFiltered =
+    const isFiltered  = 
     (!locationFilter || company.location === locationFilter) &&
     (!industryFilter || company.industry === industryFilter) &&
     (!companyTypeFilter || company.companyType === companyTypeFilter);
-
+                                                                            
   return (
     <div className={`text-black border-2 border-customColor bg-white rounded-3xl flex-col flex-wrap m-5 ${!isFiltered ? 'hidden' : ''}`}>
       {isFiltered ? (
@@ -74,8 +74,6 @@ const CompaniesCard = () => {
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        // centerMode: true,
-
       }
 
     }, {
