@@ -8,9 +8,9 @@ import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
 import drop from '../assets/Down Button.png'
 import axios from "axios";
-export const list1 =[];
-const Companycard = ({company,openJobDetails}) => {
-   return (
+ 
+import SyncLoader from "react-spinners/SyncLoader"
+const Companycard = ({company,openJobDetails}) => (
   <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
     <div className="flex justify-evenly">
       <div>
@@ -109,17 +109,23 @@ const addToCart = (selectedCompany) => {
     setList1((prevList) => [...prevList, selectedCompany]);
     console.log(list1);
   };
- 
-
+  let [loading, setLoading] = useState(true);
+  
   const [apiData, setApiData] = useState([]);
   const numberOfCards = 15;
   const Companycards = [];
 
   useEffect(() => {
     axios
+    
       .get("https://workshala.onrender.com/jobs")
-      .then((response) => setApiData(response.data))
-      .catch((error) => console.error("Error fetching data:", error));
+      .then((response) =>{ setApiData(response.data)
+      setLoading(false)
+      })
+      
+      .catch((error) => {console.error("Error fetching data:", error)
+      setLoading(false)
+    });
   }, []);
 
     for (let i = 0; i < numberOfCards; i += 3) {
@@ -133,6 +139,11 @@ const addToCart = (selectedCompany) => {
   }
     return( 
          <>
+         <div>{loading ? <>
+     <div  className=' fixed top-0 left-0 pl-19 w-full h-full flex items-center justify-center bg-black bg-opacity-40 z-50'>
+     <SyncLoader color='white' className='justify-center' />
+     </div>
+     </> : null}</div>
          <Navbar/>
        <div>
          <div className="flex items-center py-10 pl-10 bg-service-bg bg-opacity-10 mb-10 mt-5">
