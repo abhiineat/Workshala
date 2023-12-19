@@ -1,8 +1,19 @@
 import React from "react";
 import Navbar from "./Navbar";
 import profile from '../assets/profile.png'
+import { useDispatch } from "react-redux";
+import { logout } from "../Auth/authReducer";
+import { useNavigate } from "react-router-dom";
 function Profile() {
+    const dispatch = useDispatch();
+    const navigate= useNavigate();
+    const log=()=>{
+        localStorage.setItem('login',false); 
+        dispatch(logout())
+        navigate('/');
+    }
     return(
+         
     <>
     <Navbar/>
     <div >
@@ -31,6 +42,7 @@ function Profile() {
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</div>
             </div>
         </div>
+        <div><button onClick={log} className="ml-[11rem] mt-10 bg-custom-bg rounded text-white py-2 px-8 hover:bg-white hover:text-custom-text hover:border-2">Log Out</button></div>
     </div>
     </>
     )
