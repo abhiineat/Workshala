@@ -39,7 +39,7 @@ export default function Login() {
            setLoading(false);
            localStorage.setItem('login',true);
            dispatch(login());
-           navigate('/welcome');
+           navigate('/');
         
    }catch(err){
     setLoading(false)
