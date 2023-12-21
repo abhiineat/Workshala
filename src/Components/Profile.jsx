@@ -1,30 +1,53 @@
 import React from "react";
 import Navbar from "./Navbar";
 import profile from '../assets/profile.png'
+import { useState ,useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../Auth/authReducer";
 import { useNavigate } from "react-router-dom";
 function Profile() {
     const dispatch = useDispatch();
     const navigate= useNavigate();
+    const [profileData, setProfileData] = useState(null);
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+              const response = await fetch('https://workshala.onrender.com/dashboard', {
+                credentials: 'include', 
+              });
+              if (response.ok) {
+                const data = await response.json();
+                console.log("Profile Data:", data);
+                setProfileData(data);
+              } else {
+                console.error("Error fetching profile data. Status:", response.status);
+              }
+            } catch (error) {
+              console.error("Error fetching profile data", error);
+            }
+          };
+        fetchProfileData();
+      }, []); 
     const log=()=>{
         localStorage.setItem('login',false); 
         dispatch(logout())
         navigate('/');
     }
-    return(
-         
+    return( 
     <>
     <Navbar/>
     <div >
+    {profileData ? (
         <div className="flex flex-wrap justify-center my-4 font-sans">
-        <div className="h-40 bg-custom-bg bg-opacity-60 w-3/4 rounded-3xl overflow-hidden ">
+        <div className="h-50 bg-custom-bg bg-opacity-60 w-3/4 rounded-3xl overflow-hidden ">
             <div className="flex flex-wrap justify-evenly m-5">
                 <div className="flex flex-wrap justify-evenly gap-6">
             <div className="hidden md:block"><img src={profile}/></div>
-            <div className="my-4">
-                <div className="text-2xl font-semibold">Abhinav Mishra</div>
-                <div>Web Developer</div>
+            <div className="">
+                <div className="text-[1.75rem] font-semibold">{profileData.name}</div>
+                <div className="text-[1.25rem] font-semibold">{profileData.email}</div>
+                <div className="text-[1.25rem] font-semibold">{profileData.contact}</div>
+
                 <div className="hidden md:block">Ajay Kumar Garg Engineering College</div>
             </div>
             </div>
@@ -35,6 +58,8 @@ function Profile() {
             </div>
         </div>
         </div> 
+               ) : (<p>Loading...</p>
+               )}
         <div className=" justify-center flex items-center">
             <div className="border-2 border-customColor rounded-xl h-auto w-4/5 p-5">
                 <div className="text-2xl font-semibold justify-evenly ">Your Details</div>
@@ -47,5 +72,4 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </>
     )
 }
-
 export default Profile

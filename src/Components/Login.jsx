@@ -32,15 +32,24 @@ export default function Login() {
     const handleSubmit = async(event) => {
       event.preventDefault();
       setLoading(true)
-      if(email_valid.test(inputData.email)){
-      try{
-       const response = await axios.post("https://workshala.onrender.com/login",inputData);
-           console.log(response)
-           setLoading(false);
-           localStorage.setItem('login',true);
-           dispatch(login());
-           navigate('/');
-        
+      if (email_valid.test(inputData.email)) {
+        try {
+          const response = await axios.post("https://workshala.onrender.com/login", inputData, { withCredentials: true,});
+          const { data } = response; 
+          if (data.message === 'Login Successful') {
+            const cookies = response.headers['set-cookie'];
+            
+            if (cookies) {
+              cookies.forEach((cookie) => {
+                document.cookie = cookie;
+              });
+            }
+            console.log(response);
+            setLoading(false);
+            localStorage.setItem('login', true);
+            dispatch(login());
+            navigate('/');
+          }
    }catch(err){
     setLoading(false)
    if(err.response){
