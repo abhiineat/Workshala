@@ -8,6 +8,7 @@ import Work from '../assets/Work from home.png'
 import Time from '../assets/Back in time.png'
 import drop from '../assets/Down Button.png'
 import axios from "axios";
+ 
 import SyncLoader from "react-spinners/SyncLoader"
 const Companycard = ({company,openJobDetails}) => (
   <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
@@ -53,7 +54,10 @@ const Companycard = ({company,openJobDetails}) => (
    <div className="text-card-text cursor-pointer" onClick={() => openJobDetails(company)}>View Details</div>
   </div>
 )
-const Jobdetails = ({closeJobDetails,selectedCompany}) => (
+   }
+
+const Jobdetails = ({closeJobDetails,selectedCompany,addToCart}) => {
+ return(
 <div className="font-inter border-2 rounded-lg">
       <div className="flex justify-center mt-5 flex-wrap"><div className="cursor-pointer" onClick={closeJobDetails}><img src={drop} style={{width : 40}}/></div></div>
       <div className="flex md:justify-between  justify-center   mt-5 flex-wrap">
@@ -67,7 +71,8 @@ const Jobdetails = ({closeJobDetails,selectedCompany}) => (
         </div>
         <div className="flex justify-center items-center flex-wrap  sm:ml-60 mt-5">
         <div className=" flex gap-8 md:ml-0  md:mt-0 mt-4 justify md:mr-40">
-          <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Apply</button></div>
+         <div><button className="border-2 border-black py-1 px-4 rounded font-medium"  onClick={() => addToCart(selectedCompany)}>Apply</button></div>
+        
           <div><button className="border-2 border-black py-1 px-4 rounded font-medium">Save</button></div>
         </div>
         </div>
@@ -83,14 +88,15 @@ Firebase, ExpressJS</div></div>
       <div className="ml-24 text-[1.688rem] font-semibold  mt-5 hidden lg:flex">About the job</div>
       <div className="ml-24  mt-5  hidden lg:flex">{selectedCompany.detailedJobDescription}</div>
     </div>
-)
+)}
 
 
 
 function Jobs() {
   const [isJobDetailsOpen, setJobDetailsOpen] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState(null);
-  
+  const [list1, setList1] = useState([]); 
+
   const openJobDetails = (company) => { 
     setJobDetailsOpen(true);
     setSelectedCompany(company);
@@ -99,6 +105,10 @@ function Jobs() {
     setJobDetailsOpen(false);
     setSelectedCompany(company);
   }
+const addToCart = (selectedCompany) => {
+    setList1((prevList) => [...prevList, selectedCompany]);
+    console.log(list1);
+  };
   let [loading, setLoading] = useState(true);
   
   const [apiData, setApiData] = useState([]);
@@ -120,9 +130,9 @@ function Jobs() {
 
     for (let i = 0; i < numberOfCards; i += 3) {
       Companycards.push(
-      <div key={i} className="flex justify-around my-5 md:my-10 flex-wrap">
+      <div key={i} className="flex justify-evenly my-5 md:my-10 flex-wrap ">
         {apiData.slice(i, i + 3).map((company, index) => (
-          <Companycard key={index} company={company} openJobDetails={openJobDetails}/>
+          <Companycard key={index} company={company} openJobDetails={openJobDetails}  addToCart={() => addToCart(company)}/>
         ))}
       </div>
     );
@@ -148,7 +158,7 @@ function Jobs() {
        {isJobDetailsOpen && (
         <div className="fixed inset-0  flex items-end justify-center overflow-x-hidden md:overflow-y-auto overflow-y-hidden">
           <div className="relative w-full h-[35rem]  bg-white p-6 rounded-2xl">
-          <Jobdetails closeJobDetails={closeJobDetails} selectedCompany={selectedCompany}/>
+          <Jobdetails closeJobDetails={closeJobDetails} selectedCompany={selectedCompany} addToCart={() => addToCart(selectedCompany)}/>
           </div>
           </div>
       )}

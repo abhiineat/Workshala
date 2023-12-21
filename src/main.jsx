@@ -21,7 +21,6 @@ import { store, persistor } from "./store/store.js";
 
 
 
-
 const router = createBrowserRouter(
   createRoutesFromElements(
    <>

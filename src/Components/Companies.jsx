@@ -12,6 +12,7 @@ function Companies () {
     const [companyTypeFilter, setCompanyTypeFilter] = useState("");
     let [loading, setLoading] = useState(true);
     const numberOfCards = 15;
+ 
     const cards = [];
     useEffect(() => {
       axios
@@ -120,7 +121,7 @@ function Companies () {
     {cards}
   </div>
 ) : (
-  <p>No companies match the applied filters.</p>
+    <p className="text-3xl flex text-center justify-center">No companies match the applied filters.</p>
        )}
          
              </div>
