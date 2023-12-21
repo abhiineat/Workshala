@@ -3,7 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 const cookie = document.cookie
 const initialState = {
-    isAuthenticated: cookie==""?false:true,
+    isAuthenticated: localStorage.getItem('login')
 }
 
 const authSlice = createSlice({
@@ -11,6 +11,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         login: (state) => {
+            
             state.isAuthenticated = true;
         },
         logout: (state) => {

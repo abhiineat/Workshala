@@ -49,7 +49,7 @@ function Register() {
           // navigate('/login');
           setTimeout(() => {
             // Navigate to the next page using useNavigate
-            navigate('/login');
+            navigate('/welcome');
           }, 5600);
       
   }catch(err){

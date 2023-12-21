@@ -53,7 +53,7 @@ function Welcome() {
             <button className="bg-[#DEC1FF] py-1 bg-opacity-50 px-6 rounded text-xl mt-5 md:m-0" >Writing</button>
             <button className="bg-[#DEC1FF] py-1 bg-opacity-50 px-6 rounded text-xl mr-4 mt-5 md:m-0" >Web Development</button>
            </div>
-           <Link to='/'> 
+           <Link to='/login'> 
            <div className="border-2 border-customColor flex w-40 justify-center  ml-28 md:ml-40 mt-10 rounded-xl "><div className="py-1  text-xl" >Submit</div></div>
            </Link>
         </div>
