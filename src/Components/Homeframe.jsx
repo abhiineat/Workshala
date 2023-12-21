@@ -14,8 +14,8 @@ function Homeframe () {
           <div className="text-3xl font-bold" >Best Place To<br></br> Get You Placed</div>
           <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
              specimen book.</div>
-             <div className="flex">
-          <div className="gap-8 flex flex-wrap ">
+             <div className="flex mt-4">
+          <div className="gap-8 flex flex-wrap  ">
             <div><button className="bg-custom-bg rounded text-white p-2 hover:bg-white hover:text-custom-text border-2 hover:border-2">Read More</button></div>
             <div><button className="border-2 p-2 rounded text-custom-text hover:bg-custom-bg hover:text-white">Start Today</button></div>
           </div>
