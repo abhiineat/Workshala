@@ -46,7 +46,7 @@ function Register() {
       setLoading(false)
           console.log(response)
           toast("verify your email")
-          // navigate('/login');
+          
           setTimeout(() => {
             // Navigate to the next page using useNavigate
             navigate('/welcome');

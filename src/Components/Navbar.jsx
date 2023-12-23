@@ -47,7 +47,7 @@ function Navbar () {
                     </Link>
                 </div>):
     (    <div className="lg:flex hidden gap-5 text-xl justify-center items-center">
-    <Link to='/login'><div className='cursor-pointer'>SignIn</div></Link>
+    <Link to='/login'><div className='cursor-pointer hover:bg-custom-bg py-2 px-4 hover:text-white border-2 rounded-sm'>SignIn</div></Link>
     <div>
     <Link to='/register'><button className="bg-custom-bg rounded text-white py-2 px-4 hover:bg-white hover:text-custom-text hover:border-2 border-2">Register</button> </Link></div>
 </div>
