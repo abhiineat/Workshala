@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-const cookie = document.cookie
+
 const initialState = {
-    isAuthenticated: localStorage.getItem('login')
-}
+  isAuthenticated: localStorage.getItem("login") === "true", // Convert string to boolean
+};
+
 const authSlice = createSlice({
-    name: 'auth',
-    initialState,
-    reducers: {
-        login: (state) => {
-            state.isAuthenticated = true;
-        },
-        logout: (state) => {
-            state.isAuthenticated = false;
-        },
+  name: "auth",
+  initialState,
+  reducers: {
+    login: (state) => {
+      state.isAuthenticated = localStorage.getItem("login") === "true";
     },
+    logout: (state) => {
+      state.isAuthenticated = false;
+    },
+  },
 });
 
 export const { login, logout } = authSlice.actions;

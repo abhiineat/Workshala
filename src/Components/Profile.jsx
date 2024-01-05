@@ -29,7 +29,8 @@ function Profile() {
         fetchProfileData();
       }, []); 
     const log=()=>{
-        localStorage.setItem('login',false); 
+        window.localStorage.setItem("login",false);
+        document.cookie = 'login=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path="/";';
         dispatch(logout())
         navigate('/');
     }

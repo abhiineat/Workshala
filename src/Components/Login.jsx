@@ -24,7 +24,6 @@ export default function Login() {
     password: ""
      }
     const [inputData, setInputData] = useState('');
-
     const handleChange = (event) => {
       setInputData({...inputData, [event.target.name]:event.target.value});
     };
@@ -46,7 +45,7 @@ export default function Login() {
             }
             console.log(response);
             setLoading(false);
-            localStorage.setItem('login', true);
+            window.localStorage.setItem("login",true); 
             dispatch(login());
             navigate('/');
           }
