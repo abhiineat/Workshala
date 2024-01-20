@@ -10,16 +10,22 @@ import drop from '../assets/Down Button.png'
 import axios from "axios";
 import SyncLoader from "react-spinners/SyncLoader"
 const Companycard = ({company,openJobDetails}) => (
-  <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col h-100 w-100">
-    <div className="flex justify-evenly">
-      <div>
+  <div className="aspect-square md:h-[30rem]">
+  <div className="text-worksans shadow-custom md:p-8 m-8 md:m-0 flex-col">
+    <div className="flex">
+      <div className="flex-col justify-between">
    <div className="flex items-center"><div className="px-2 border-2 border-black rounded flex items-center gap-2"><div class="w-4 h-4 bg-custom2-bg rounded-full"></div>Actively hiring</div></div>
-
-   <div className="font-semibold text-3xl mt-5">{company.companyName}</div>
-   <div className="mt-5">{company.industry}</div>
+   <div className="aspect-h-4 aspect-w-3">
+   <div className=" aspect-w-4 aspect-h-3">
+   <div className="font-semibold text-[2rem] w-full h-full overflow-hidden">{company.companyName}</div>
+   </div>
+   <div className=" aspect-w-4 aspect-h-3">
+   <div className="mt-5 w-full h-full overflow-hidden">{company.industry}</div>
+   </div>
+   </div>
    </div>
    <div className="ml-24 h-20 flex">
-   <div  className="flex justify-center items-center"><img src={company.imageUrl} style={{width:50 , height:50}}/></div>
+   <div className="flex justify-center items-center aspect-square"><img  className="object-fit w-full h-full" src={company.imageUrl}/></div>
    </div>
    </div>
    <div>
@@ -52,6 +58,7 @@ const Companycard = ({company,openJobDetails}) => (
    <hr class="border-2 border-gray-200 my-4 w-full"/>
    <div className="text-card-text cursor-pointer" onClick={() => openJobDetails(company)}>View Details</div>
   </div>
+  </div>
 )
 const Jobdetails = ({closeJobDetails,selectedCompany}) => (
 <div className="font-inter border-2 rounded-lg">
@@ -73,10 +80,11 @@ const Jobdetails = ({closeJobDetails,selectedCompany}) => (
         </div>
      
       </div>
-      <div className="flex md:ml-24 text-[1.688rem] font-semibold  mt-5">Skills</div>
+      
+      <div className="md:flex hidden md:ml-24 text-[1.688rem] font-semibold  mt-5">Skills</div>
       <div className="flex gap-4 md:ml-24  md:mt-5 ">
-        <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
-        <div className=""><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
+        <div className="hidden md:flex"><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
+        <div className="hidden md:flex"><button className="bg-[#DEC1FF] p-1 rounded-xl">Node.js</button></div>
       </div>
       <div className="ml-24  mt-5  hidden md:flex"><div className="bg-[#DEC1FF] rounded-xl px-2">HTML5, CSS3, JavaScript, SASS, ReactJS, NextJS, Shopify, MongoDB,<br></br>
 Firebase, ExpressJS</div></div>
@@ -120,7 +128,7 @@ function Jobs() {
 
     for (let i = 0; i < numberOfCards; i += 3) {
       Companycards.push(
-      <div key={i} className="flex justify-around my-5 md:my-10 flex-wrap">
+      <div key={i} className="flex justify-evenly flex-wrap">
         {apiData.slice(i, i + 3).map((company, index) => (
           <Companycard key={index} company={company} openJobDetails={openJobDetails}/>
         ))}
@@ -139,11 +147,11 @@ function Jobs() {
          <div className="flex items-center py-10 pl-10 bg-service-bg bg-opacity-10 mb-10 mt-5">
                 <p className="text-3xl font-bold font-worksans text-worksans">Jobs for You</p>
         </div>
-        <div>
-            <div className="bg-opacity-10 flex-wrap md:m-0 ">
+      
+            <div>
             {Companycards}
             </div>
-        </div>
+  
        </div>
        {isJobDetailsOpen && (
         <div className="fixed inset-0  flex items-end justify-center overflow-x-hidden md:overflow-y-auto overflow-y-hidden">

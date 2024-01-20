@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  isAuthenticated: localStorage.getItem("login") === "true", // Convert string to boolean
+  isAuthenticated: localStorage.getItem("login") === "true",
 };
 
 const authSlice = createSlice({
@@ -18,5 +18,4 @@ const authSlice = createSlice({
 });
 
 export const { login, logout } = authSlice.actions;
-
 export default authSlice.reducer;
