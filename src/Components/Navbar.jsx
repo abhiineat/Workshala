@@ -60,7 +60,9 @@ function Navbar () {
             {" "}
             <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Home</div>
           </Link>
+          <Link to="/courses">
             <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Services</div>
+            </Link>
           <Link to="/companies">
             <div  className='p-2 my-2 rounded-md  w-[100%] flex justify-center items-center hover:bg-customColor'>Companies</div>
           </Link>
